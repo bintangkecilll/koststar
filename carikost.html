@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Kos - Kost Star</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        
+        /* Sticky Sidebar hanya aktif di Desktop (min-width 1024px) */
+        @media (min-width: 1024px) {
+            .sticky-sidebar {
+                position: sticky;
+                top: 100px;
+                height: fit-content;
+            }
+        }
+
+        .filter-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            padding: 24px;
+        }
+
+        .kost-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .kost-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Custom Checkbox Style */
+        .custom-checkbox:checked {
+            background-color: #1d4ed8;
+            border-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="bg-white sticky top-0 z-[100] shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center gap-2">
+                    <i class="fa-solid fa-star"></i> Kost Star
+                </a>
+                <div class="hidden md:flex gap-6 font-medium text-gray-600">
+                    <a href="carikost.html" class="text-blue-700 transition font-bold">Cari Kos</a>
+                    <a href="panduan.html" class="hover:text-blue-600 transition">Panduan</a>
+                    <a href="blog.html" class="hover:text-blue-600 transition">Blog</a>
+                </div>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+
+            <a href="tel:02112345678" class="hidden md:flex border-2 border-blue-700 text-blue-700 px-5 py-2 rounded-lg font-semibold items-center gap-2 hover:bg-blue-700 hover:text-white transition">
+                <i class="fa-solid fa-phone"></i> 021-1234-5678
+            </a>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4 space-y-4 shadow-lg">
+            <a href="carikost.html" class="block font-semibold text-blue-700">Cari Kos</a>
+            <a href="panduan.html" class="block font-semibold text-gray-600">Panduan</a>
+            <a href="blog.html" class="block font-semibold text-gray-600">Blog</a>
+            <hr>
+            <a href="tel:02112345678" class="flex items-center gap-2 text-blue-700 font-bold">
+                <i class="fa-solid fa-phone"></i> 021-1234-5678
+            </a>
+        </div>
+    </nav>
+
+    <header class="bg-blue-700 py-8 md:py-12 px-4 md:px-0">
+        <div class="container mx-auto px-2 md:px-6 text-center md:text-left">
+            <h1 class="text-2xl md:text-4xl font-extrabold text-white mb-2">Pencarian Hunian</h1>
+            <p class="text-blue-100 text-sm md:text-base">Temukan kamar terbaik dari <span class="font-bold text-white">500+</span> pilihan di seluruh kota.</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 md:px-6 py-8 md:py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            
+            <aside class="w-full lg:w-1/4">
+                <div class="sticky-sidebar space-y-6">
+                    <div class="filter-card shadow-sm">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="font-bold text-lg text-gray-900">Filter</h2>
+                            <button onclick="resetFilters()" class="text-sm text-blue-600 font-semibold hover:underline">Reset</button>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-3">Lokasi Kota</label>
+                            <div class="relative">
+                                <i class="fa-solid fa-location-dot absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                                <input type="text" id="filterCity" onkeyup="applyFilters()" placeholder="Cari Kota..." 
+                                       class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 outline-none transition font-medium text-sm">
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-3">Tipe Kos</label>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input type="checkbox" name="type" value="Putra" onchange="applyFilters()" class="w-5 h-5 rounded border-gray-300 text-blue-700 focus:ring-blue-500">
+                                    <span class="text-gray-600 font-medium group-hover:text-blue-700 text-sm">Kos Putra</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input type="checkbox" name="type" value="Putri" onchange="applyFilters()" class="w-5 h-5 rounded border-gray-300 text-blue-700 focus:ring-blue-500">
+                                    <span class="text-gray-600 font-medium group-hover:text-blue-700 text-sm">Kos Putri</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input type="checkbox" name="type" value="Eksklusif" onchange="applyFilters()" class="w-5 h-5 rounded border-gray-300 text-blue-700 focus:ring-blue-500">
+                                    <span class="text-gray-600 font-medium group-hover:text-blue-700 text-sm">Eksklusif</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-black text-gray-400 uppercase tracking-widest mb-3">Harga Maksimal</label>
+                            <select id="filterPrice" onchange="applyFilters()" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none font-semibold text-gray-700 text-sm">
+                                <option value="99999999">Semua Harga</option>
+                                <option value="1000000">Di bawah 1 Juta</option>
+                                <option value="1500000">Di bawah 1.5 Juta</option>
+                                <option value="2500000">Di bawah 2.5 Juta</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="w-full lg:w-3/4">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+                    <p class="text-gray-500 font-medium text-sm md:text-base"><span id="resultCount" class="font-bold text-gray-900">4</span> Kos ditemukan</p>
+                    <div class="flex items-center gap-2">
+                        <span class="text-sm text-gray-400">Urutkan:</span>
+                        <select class="bg-transparent font-bold text-gray-700 outline-none cursor-pointer text-sm">
+                            <option>Terbaru</option>
+                            <option>Harga Terendah</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="kostGrid">
+                    <div class="kost-item kost-card bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm" 
+                         data-type="Eksklusif" data-price="2000000" data-city="Jakarta">
+                        <div class="relative">
+                            <img src="img/kost1.avif" class="w-full h-48 md:h-64 object-cover">
+                            <span class="absolute top-4 left-4 bg-blue-600 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Eksklusif</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg md:text-xl text-gray-900">Kost Star A - Senen</h3>
+                            <div class="flex items-center gap-2 text-red-500 font-bold text-xs md:text-sm mt-1 mb-4">
+                                <i class="fa-solid fa-location-dot"></i> Senen, Jakarta Pusat
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2 md:gap-4 text-gray-500 text-[10px] md:text-xs mb-6">
+                                <span class="bg-gray-100 px-2 py-1 rounded">3x4 m</span>
+                                <span class="bg-gray-100 px-2 py-1 rounded">WiFi</span>
+                                <span class="bg-gray-100 px-2 py-1 rounded">KM Dalam</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t pt-5">
+                                <p class="text-blue-700 font-black text-lg md:text-xl">Rp 2 Juta<span class="text-gray-400 text-xs font-normal">/bln</span></p>
+                                <a href="detailkost1.html" class="bg-gray-900 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kost-item kost-card bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm" 
+                         data-type="Putra" data-price="1500000" data-city="Tangerang">
+                        <div class="relative">
+                            <img src="img/kost2.avif" class="w-full h-48 md:h-64 object-cover">
+                            <span class="absolute top-4 left-4 bg-green-600 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Putra</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg md:text-xl text-gray-900">Kost Star B - BSD</h3>
+                            <div class="flex items-center gap-2 text-red-500 font-bold text-xs md:text-sm mt-1 mb-4">
+                                <i class="fa-solid fa-location-dot"></i> BSD, Tangerang
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2 md:gap-4 text-gray-500 text-[10px] md:text-xs mb-6">
+                                <span class="bg-gray-100 px-2 py-1 rounded">3x3 m</span>
+                                <span class="bg-gray-100 px-2 py-1 rounded">AC</span>
+                                <span class="bg-gray-100 px-2 py-1 rounded">Kamar Luar</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t pt-5">
+                                <p class="text-blue-700 font-black text-lg md:text-xl">Rp 1.5 Juta<span class="text-gray-400 text-xs font-normal">/bln</span></p>
+                                <a href="detailkost2.html" class="bg-gray-900 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kost-item kost-card bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm" 
+                         data-type="Putri" data-price="2300000" data-city="Depok">
+                        <div class="relative">
+                            <img src="img/kost3.avif" class="w-full h-48 md:h-64 object-cover">
+                            <span class="absolute top-4 left-4 bg-pink-600 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Putri</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg md:text-xl text-gray-900">Kost Star C - Depok</h3>
+                            <div class="flex items-center gap-2 text-red-500 font-bold text-xs md:text-sm mt-1 mb-4">
+                                <i class="fa-solid fa-location-dot"></i> Margonda, Depok
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2 md:gap-4 text-gray-500 text-[10px] md:text-xs mb-6">
+                                <span class="bg-gray-100 px-2 py-1 rounded">3x4 m</span>
+                                <span class="bg-gray-100 px-2 py-1 rounded">Smart TV</span>
+                                <span class="bg-gray-100 px-2 py-1 rounded">Pantry</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t pt-5">
+                                <p class="text-blue-700 font-black text-lg md:text-xl">Rp 2.3 Juta<span class="text-gray-400 text-xs font-normal">/bln</span></p>
+                                <a href="detailkost3.html" class="bg-gray-900 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="kost-item kost-card bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm" 
+                         data-type="Putri" data-price="1000000" data-city="Jakarta">
+                        <div class="relative">
+                            <img src="img/kost4.avif" class="w-full h-48 md:h-64 object-cover">
+                            <span class="absolute top-4 left-4 bg-pink-600 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Putri</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg md:text-xl text-gray-900">Kost Star D - Tebet</h3>
+                            <div class="flex items-center gap-2 text-red-500 font-bold text-xs md:text-sm mt-1 mb-4">
+                                <i class="fa-solid fa-location-dot"></i> Tebet, Jakarta Selatan
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2 md:gap-4 text-gray-500 text-[10px] md:text-xs mb-6">
+                                <span class="bg-gray-100 px-2 py-1 rounded">3x3 m</span>
+                                <span class="bg-gray-100 px-2 py-1 rounded">WiFi</span>
+                                <span class="bg-gray-100 px-2 py-1 rounded">Dapur Bersama</span>
+                            </div>
+                            <div class="flex justify-between items-center border-t pt-5">
+                                <p class="text-blue-700 font-black text-lg md:text-xl">Rp 1 Juta<span class="text-gray-400 text-xs font-normal">/bln</span></p>
+                                <a href="detailkost4.html" class="bg-gray-900 text-white px-4 py-2 rounded-lg font-bold text-sm hover:bg-blue-700 transition">Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="noResults" class="hidden text-center py-20">
+                    <div class="bg-gray-100 w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fa-solid fa-magnifying-glass text-3xl md:text-4xl text-gray-400"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900">Kos tidak ditemukan</h3>
+                    <p class="text-gray-500 mt-2 text-sm md:text-base">Coba ubah filter atau kata kunci pencarian Anda.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t pt-12 md:pt-20 pb-10">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-12 md:mb-16">
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-blue-700 flex items-center gap-2"><i class="fa-solid fa-star"></i> Kost Star</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Platform cari kos nomor #1 di Indonesia yang memudahkan pencarian hunian idaman bagi mahasiswa dan karyawan.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 md:mb-6">Navigasi</h4>
+                    <ul class="space-y-3 text-gray-500 text-sm">
+                        <li><a href="#" class="hover:text-blue-600 transition">Cara Booking</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition">Tips & Artikel</a></li>
+                        <li><a href="#" class="hover:text-blue-600 transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 md:mb-6">Kontak</h4>
+                    <ul class="space-y-3 text-gray-500 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-clock text-blue-500"></i> 08:00 - 17:00 WIB</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-blue-500"></i> 021-1234-5678</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-blue-500"></i> support@koststar.id</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4 md:mb-6">Ikuti Kami</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition shadow-sm"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-blue-50 text-blue-400 rounded-full flex items-center justify-center hover:bg-blue-400 hover:text-white transition shadow-sm"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 bg-blue-50 text-pink-500 rounded-full flex items-center justify-center hover:bg-pink-500 hover:text-white transition shadow-sm"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t pt-8 text-center text-gray-400 text-[10px] md:text-xs tracking-widest uppercase">
+                KOSTSTAR.ID © 2026 — CARI KOS IMPIAN ANDA DENGAN MUDAH & NYAMAN!
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // LOGIKA MOBILE NAVBAR TOGGLE
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get('type');
+            const location = urlParams.get('location');
+
+            if (location) {
+                document.getElementById('filterCity').value = location;
+            }
+
+            if (type && type !== 'Semua') {
+                const checkboxes = document.querySelectorAll('input[name="type"]');
+                checkboxes.forEach(cb => {
+                    if (cb.value === type) {
+                        cb.checked = true;
+                    }
+                });
+            }
+
+            applyFilters();
+        };
+
+        function applyFilters() {
+            const cityInput = document.getElementById('filterCity').value.toLowerCase();
+            const maxPrice = parseInt(document.getElementById('filterPrice').value);
+            
+            const checkedTypes = Array.from(document.querySelectorAll('input[name="type"]:checked'))
+                                     .map(cb => cb.value);
+
+            const items = document.querySelectorAll('.kost-item');
+            let visibleCount = 0;
+
+            items.forEach(item => {
+                const itemType = item.getAttribute('data-type');
+                const itemPrice = parseInt(item.getAttribute('data-price'));
+                const itemCity = item.getAttribute('data-city').toLowerCase();
+
+                const matchCity = itemCity.includes(cityInput);
+                const matchPrice = itemPrice <= maxPrice;
+                const matchType = checkedTypes.length === 0 || checkedTypes.includes(itemType);
+
+                if (matchCity && matchPrice && matchType) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            document.getElementById('resultCount').innerText = visibleCount;
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+
+        function resetFilters() {
+            document.getElementById('filterCity').value = '';
+            document.getElementById('filterPrice').value = '99999999';
+            document.querySelectorAll('input[name="type"]').forEach(cb => cb.checked = false);
+            applyFilters();
+        }
+    </script>
+    <div class="fixed bottom-6 right-6 flex flex-col gap-4 items-end z-[999]">
+    
+    <div id="cs-popup" class="hidden w-72 md:w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden mb-2 transition-all duration-300 transform translate-y-4 opacity-0">
+        <div class="bg-blue-700 p-4 text-white flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <img src="https://i.pravatar.cc/100?u=admin" class="w-10 h-10 rounded-full border-2 border-white/20">
+                    <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+                </div>
+                <div>
+                    <p class="text-sm font-bold leading-none">Admin Kost Star</p>
+                    <small class="text-xs text-blue-100">Online 24/7</small>
+                </div>
+            </div>
+            <button onclick="toggleCSPopup()" class="text-white/80 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <div class="p-4 h-48 overflow-y-auto bg-slate-50 flex flex-col gap-3">
+            <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 max-w-[85%]">
+                <p class="text-xs text-slate-600 leading-relaxed font-medium">Halo! 👋 Selamat datang di Kost Star. Ada yang bisa kami bantu seputar pencarian kos hari ini?</p>
+                <small class="text-[10px] text-slate-400 mt-1 block">13:45</small>
+            </div>
+        </div>
+
+        <div class="p-3 bg-white border-t flex gap-2">
+            <input type="text" placeholder="Tulis pesan..." class="flex-1 bg-slate-100 border-none rounded-xl px-4 py-2 text-sm focus:ring-1 focus:ring-blue-600 outline-none">
+            <button class="bg-blue-700 text-white w-10 h-10 rounded-xl flex items-center justify-center hover:bg-blue-800 transition">
+                <i class="fa-solid fa-paper-plane text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <button onclick="toggleCSPopup()" class="flex items-center gap-3 bg-blue-700 text-white px-5 py-3 rounded-full shadow-xl hover:bg-blue-800 hover:scale-105 transition-all duration-300 group">
+        <span class="text-sm font-bold hidden group-hover:block transition-all">Chat Admin</span>
+        <i class="fa-solid fa-headset text-xl"></i>
+    </button>
+
+    <a href="https://wa.me/6281234567890?text=Halo%20Kost%20Star,%20saya%20ingin%20bertanya%20seputar%20unit%20kos." 
+       target="_blank" 
+       class="flex items-center gap-3 bg-green-500 text-white px-5 py-3 rounded-full shadow-xl hover:bg-green-600 hover:scale-105 transition-all duration-300 group">
+        <span class="text-sm font-bold hidden group-hover:block transition-all">WhatsApp Chat</span>
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+</div>
+
+<script>
+    function toggleCSPopup() {
+        const popup = document.getElementById('cs-popup');
+        
+        if (popup.classList.contains('hidden')) {
+            // Tampilkan
+            popup.classList.remove('hidden');
+            setTimeout(() => {
+                popup.classList.remove('translate-y-4', 'opacity-0');
+                popup.classList.add('translate-y-0', 'opacity-100');
+            }, 10);
+        } else {
+            // Sembunyikan
+            popup.classList.add('translate-y-4', 'opacity-0');
+            popup.classList.remove('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 300);
+        }
+    }
+</script>
+</body>
+</html>

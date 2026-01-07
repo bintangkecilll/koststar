@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kost Star B - Cozy Student BSD</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #64748b;
+            --success: #22c55e;
+            --bg-light: #f1f5f9;
+            --text-dark: #0f172a;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: var(--text-dark); }
+
+        /* Detail Page CSS */
+        .main-container { max-width: 1140px; margin: 0 auto; padding: 40px 20px; }
+        .badge-type { background: #dbeafe; color: var(--primary); padding: 4px 12px; border-radius: 6px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+        .main-title { font-size: 2.5rem; margin: 10px 0; color: var(--text-dark); font-weight: 800; }
+        .main-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; }
+
+        .main-img { width: 100%; border-radius: 24px; aspect-ratio: 16/9; object-fit: cover; margin-bottom: 30px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .content-card { background: white; padding: 30px; border-radius: 20px; border: 1px solid #e2e8f0; margin-bottom: 30px; }
+        .section-h { font-size: 1.25rem; font-weight: 700; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+        
+        /* --- FASILITAS 3 KOLOM --- */
+        .facility-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 15px; 
+            margin-top: 20px; 
+        }
+        .f-item { background: var(--bg-light); padding: 12px; border-radius: 12px; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+
+        .sidebar { position: sticky; top: 100px; height: fit-content; }
+        .sticky-card { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .price { font-size: 1.75rem; font-weight: 800; color: var(--primary); }
+        
+        .btn-wa { display: flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: white; text-align: center; padding: 16px; border-radius: 14px; text-decoration: none; font-weight: 700; margin-top: 20px; transition: 0.3s; }
+        .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 10px 15px -3px rgba(37, 211, 102, 0.3); background: #1fad53; }
+
+        .note-list { list-style: none; margin-top: 15px; }
+        .note-list li { font-size: 0.9rem; color: var(--secondary); margin-bottom: 12px; display: flex; gap: 10px; align-items: start; }
+
+        .others-section { margin-top: 60px; padding-top: 40px; border-top: 1px solid #e2e8f0; }
+        .others-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 30px; }
+        .other-card { background: white; border-radius: 20px; overflow: hidden; border: 1px solid #e2e8f0; transition: 0.3s; text-decoration: none; color: inherit; }
+        .other-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05); }
+
+        /* Media Query Responsive */
+        @media (max-width: 992px) { 
+            .main-grid { grid-template-columns: 1fr; } 
+            .sidebar { position: static; } 
+        }
+        @media (max-width: 640px) {
+            .facility-grid { grid-template-columns: repeat(2, 1fr); } 
+            .main-title { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="bg-white sticky top-0 z-50 shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center gap-2">
+                    <i class="fa-solid fa-star"></i> Kost Star
+                </a>
+                <div class="hidden md:flex gap-6 font-medium text-gray-600">
+                    <a href="carikost.html" class="hover:text-blue-700 transition">Cari Kos</a>
+                    <a href="panduan.html" class="hover:text-blue-600 transition">Panduan</a>
+                    <a href="blog.html" class="hover:text-blue-600 transition">Blog</a>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <a href="tel:02112345678" class="hidden md:flex border-2 border-blue-700 text-blue-700 px-5 py-2 rounded-lg font-semibold items-center gap-2 hover:bg-blue-700 hover:text-white transition">
+                    <i class="fa-solid fa-phone"></i> 021-1234-5678
+                </a>
+
+                <button id="menu-btn" class="md:hidden text-blue-700 text-2xl focus:outline-none">
+                    <i id="menu-icon" class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg transition-all duration-300">
+            <div class="flex flex-col p-6 gap-4 font-semibold text-gray-600">
+                <a href="carikost.html" class="hover:text-blue-700 py-2 border-b border-gray-50">Cari Kos</a>
+                <a href="panduan.html" class="hover:text-blue-700 py-2 border-b border-gray-50">Panduan</a>
+                <a href="blog.html" class="hover:text-blue-700 py-2 border-b border-gray-50">Blog</a>
+                <a href="tel:02112345678" class="text-blue-700 py-2 flex items-center gap-2">
+                    <i class="fa-solid fa-phone"></i> Hubungi CS
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-container">
+        <div class="page-header">
+            <span class="badge-type">Putra • Cozy Student</span>
+            <h1 class="main-title">Kost Star B - BSD</h1>
+            <p style="color: var(--secondary); font-weight: 500;">
+                <i class="fa-solid fa-location-dot text-red-500 mr-1"></i> Jl. BSD Raya Utama No. 45, Serpong, Tangerang
+            </p>
+        </div>
+
+        <div class="main-grid">
+            <div class="left-content">
+                <img src="img/kost2.avif" alt="Kost Star B" class="main-img">
+                
+                <div class="content-card">
+                    <h2 class="section-h"><i class="fa-solid fa-circle-info text-blue-600"></i> Tentang Kost Star B</h2>
+                    <p class="description" style="color: #475569; line-height: 1.8;">
+                        Kost Star B adalah hunian khusus putra yang strategis dan nyaman, sangat cocok bagi mahasiswa yang berkuliah di area BSD (Prasetiya Mulya, BINUS, UMN). Desain interior fungsional dengan area belajar yang tenang. Lokasi dekat dengan pusat kuliner murah dan minimarket, memudahkan kebutuhan sehari-hari Anda.
+                    </p>
+                </div>
+
+                <div class="content-card">
+                    <h2 class="section-h"><i class="fa-solid fa-bolt text-yellow-500"></i> Fasilitas Kamar & Umum</h2>
+                    <div class="facility-grid">
+                        <div class="f-item"><span>🛏️</span> Kasur Single</div>
+                        <div class="f-item"><span>🗄️</span> Lemari Pakaian</div>
+                        <div class="f-item"><span>✍️</span> Meja Belajar</div>
+                        <div class="f-item"><span>❄️</span> AC</div>
+                        <div class="f-item"><span>🌐</span> WiFi Gratis</div>
+                        <div class="f-item"><span>🚿</span> KM Luar Bersih</div>
+                        <div class="f-item"><span>🍳</span> Dapur Bersama</div>
+                        <div class="f-item"><span>🏍️</span> Parkir Motor</div>
+                        <div class="f-item"><span>☕</span> Dispenser Umum</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <div class="sticky-card">
+                    <p style="font-size: 0.9rem; color: var(--secondary); font-weight: 600;">Mulai dari</p>
+                    <div class="price">Rp 1.500.000 <span style="font-size: 1rem; font-weight: 400; color: #94a3b8">/bln</span></div>
+                    
+                    <a href="https://wa.me/6281234567890?text=Halo%20Bp.%20Bintang,%20saya%20ingin%20bertanya%20ketersediaan%20kamar%20di%20Kost%20Star%20B%20-%20BSD.%20Apakah%20masih%20ada%20unit%20yang%20kosong?" 
+                       target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Tanya Ketersediaan
+                    </a>
+
+                    <div style="margin-top: 25px; padding-top: 20px; border-top: 1px dashed #e2e8f0;">
+                        <div class="flex items-center gap-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold">B</div>
+                            <div>
+                                <h4 style="font-size: 1rem; font-weight: 700;">Bp. Bintang</h4>
+                                <p style="font-size: 0.8rem; color: var(--secondary)">Pemilik Kost</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sticky-card">
+                    <h4 class="section-h" style="font-size: 1.1rem;"><i class="fa-solid fa-clipboard-list text-blue-600"></i> Peraturan</h4>
+                    <ul class="note-list">
+                        <li><i class="fa-solid fa-circle-exclamation text-orange-400 mt-1"></i> Khusus Penghuni Putra</li>
+                        <li><i class="fa-solid fa-circle-exclamation text-orange-400 mt-1"></i> Jam malam tamu pukul 22.00</li>
+                        <li><i class="fa-solid fa-circle-exclamation text-orange-400 mt-1"></i> Tidak membawa hewan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <section class="others-section">
+            <h2 class="section-h" style="font-size: 1.5rem;">Unit Kost Lainnya</h2>
+            <div class="others-grid">
+                <a href="detailkost1.html" class="other-card">
+                    <img src="img/kost1.avif" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <div style="font-size: 0.75rem; font-weight: 800; color: #2563eb; margin-bottom: 5px;">EKSKLUSIF</div>
+                        <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 5px;">Kost Star A - Senen</div>
+                        <div style="color: var(--primary); font-weight: 800;">Rp 2.500.000 <span style="font-weight: 400; color: #94a3b8">/bln</span></div>
+                    </div>
+                </a>
+                <a href="detailkost3.html" class="other-card">
+                    <img src="img/kost3.avif" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <div style="font-size: 0.75rem; font-weight: 800; color: #db2777; margin-bottom: 5px;">PUTRI</div>
+                        <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 5px;">Kost Star C - Depok</div>
+                        <div style="color: var(--primary); font-weight: 800;">Rp 2.300.000 <span style="font-weight: 400; color: #94a3b8">/bln</span></div>
+                    </div>
+                </a>
+                 <a href="detailkost4.html" class="other-card">
+                    <img src="img/kost4.avif" class="w-full h-48 object-cover">
+                    <div class="p-5">
+                        <div style="font-size: 0.75rem; font-weight: 800; color: #db2777; margin-bottom: 5px;">PUTRI</div>
+                        <div style="font-weight: 700; font-size: 1.1rem; margin-bottom: 5px;">Kost Star D - Tebet</div>
+                        <div style="color: var(--primary); font-weight: 800;">Rp 1.000.000 <span style="font-weight: 400; color: #94a3b8">/bln</span></div>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t pt-20 pb-10 mt-20">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-blue-700 flex items-center gap-2"><i class="fa-solid fa-star"></i> Kost Star</h4>
+                    <p class="text-gray-500 text-sm leading-relaxed">Platform cari kos nomor #1 di Indonesia yang memudahkan pencarian hunian idaman.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Navigasi</h4>
+                    <ul class="space-y-3 text-gray-500 text-sm">
+                        <li><a href="index.html" class="hover:text-blue-600 transition">Beranda</a></li>
+                        <li><a href="cari-kos.html" class="hover:text-blue-600 transition">Cari Kos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Kontak</h4>
+                    <ul class="space-y-3 text-gray-500 text-sm">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-phone text-blue-500"></i> 021-1234-5678</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-envelope text-blue-500"></i> support@koststar.id</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Ikuti Kami</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition shadow-sm"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-blue-50 text-pink-500 rounded-full flex items-center justify-center hover:bg-pink-500 hover:text-white transition shadow-sm"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t pt-8 text-center text-gray-400 text-xs tracking-widest uppercase">
+                KOSTSTAR.ID © 2026 — CARI KOS IMPIAN ANDA DENGAN MUDAH & NYAMAN!
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            // Togle class 'hidden' pada menu mobile
+            mobileMenu.classList.toggle('hidden');
+            
+            // Togle icon antara 'bars' (garis tiga) dan 'xmark' (silang)
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+    </script>
+<div class="fixed bottom-6 right-6 flex flex-col gap-4 items-end z-[999]">
+    
+    <div id="cs-popup" class="hidden w-72 md:w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden mb-2 transition-all duration-300 transform translate-y-4 opacity-0">
+        <div class="bg-blue-700 p-4 text-white flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <img src="https://i.pravatar.cc/100?u=admin" class="w-10 h-10 rounded-full border-2 border-white/20">
+                    <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+                </div>
+                <div>
+                    <p class="text-sm font-bold leading-none">Admin Kost Star</p>
+                    <small class="text-xs text-blue-100">Online 24/7</small>
+                </div>
+            </div>
+            <button onclick="toggleCSPopup()" class="text-white/80 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <div class="p-4 h-48 overflow-y-auto bg-slate-50 flex flex-col gap-3">
+            <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 max-w-[85%]">
+                <p class="text-xs text-slate-600 leading-relaxed font-medium">Halo! 👋 Selamat datang di Kost Star. Ada yang bisa kami bantu seputar pencarian kos hari ini?</p>
+                <small class="text-[10px] text-slate-400 mt-1 block">13:45</small>
+            </div>
+        </div>
+
+        <div class="p-3 bg-white border-t flex gap-2">
+            <input type="text" placeholder="Tulis pesan..." class="flex-1 bg-slate-100 border-none rounded-xl px-4 py-2 text-sm focus:ring-1 focus:ring-blue-600 outline-none">
+            <button class="bg-blue-700 text-white w-10 h-10 rounded-xl flex items-center justify-center hover:bg-blue-800 transition">
+                <i class="fa-solid fa-paper-plane text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <button onclick="toggleCSPopup()" class="flex items-center gap-3 bg-blue-700 text-white px-5 py-3 rounded-full shadow-xl hover:bg-blue-800 hover:scale-105 transition-all duration-300 group">
+        <span class="text-sm font-bold hidden group-hover:block transition-all">Chat Admin</span>
+        <i class="fa-solid fa-headset text-xl"></i>
+    </button>
+
+    <a href="https://wa.me/6281234567890?text=Halo%20Kost%20Star,%20saya%20ingin%20bertanya%20seputar%20unit%20kos." 
+       target="_blank" 
+       class="flex items-center gap-3 bg-green-500 text-white px-5 py-3 rounded-full shadow-xl hover:bg-green-600 hover:scale-105 transition-all duration-300 group">
+        <span class="text-sm font-bold hidden group-hover:block transition-all">WhatsApp Chat</span>
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+</div>
+
+<script>
+    function toggleCSPopup() {
+        const popup = document.getElementById('cs-popup');
+        
+        if (popup.classList.contains('hidden')) {
+            // Tampilkan
+            popup.classList.remove('hidden');
+            setTimeout(() => {
+                popup.classList.remove('translate-y-4', 'opacity-0');
+                popup.classList.add('translate-y-0', 'opacity-100');
+            }, 10);
+        } else {
+            // Sembunyikan
+            popup.classList.add('translate-y-4', 'opacity-0');
+            popup.classList.remove('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 300);
+        }
+    }
+</script>
+</body>
+</html>

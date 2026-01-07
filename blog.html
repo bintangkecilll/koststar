@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog & Tips - Kost Star</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        .blog-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08); }
+        .blog-card { transition: all 0.4s ease; }
+    </style>
+</head>
+<body>
+
+    <nav class="bg-white sticky top-0 z-[100] shadow-sm border-b border-gray-100">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-8">
+                <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center gap-2">
+                    <i class="fa-solid fa-star"></i> Kost Star
+                </a>
+                <div class="hidden md:flex gap-6 font-medium text-gray-600">
+                    <a href="carikost.html" class="hover:text-blue-700 transition">Cari Kos</a>
+                    <a href="panduan.html" class="hover:text-blue-700 transition">Panduan</a>
+                    <a href="blog.html" class="text-blue-700 font-bold">Blog</a>
+                </div>
+            </div>
+            <button id="nav-toggle" class="md:hidden text-gray-600 p-2">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+            <div class="hidden md:block">
+                <a href="tel:02112345678" class="border-2 border-blue-700 text-blue-700 px-5 py-2 rounded-lg font-semibold flex items-center gap-2 hover:bg-blue-700 hover:text-white transition">
+                    <i class="fa-solid fa-phone"></i> 021-1234-5678
+                </a>
+            </div>
+        </div>
+        <div id="nav-menu" class="hidden md:hidden bg-white border-t p-6 space-y-4 shadow-lg absolute w-full">
+            <a href="carikost.html" class="block font-semibold text-gray-700">Cari Kos</a>
+            <a href="panduan.html" class="block font-semibold text-gray-700">Panduan</a>
+            <a href="blog.html" class="block font-semibold text-blue-700">Blog</a>
+        </div>
+    </nav>
+
+    <header class="py-16 bg-white border-b">
+        <div class="container mx-auto px-6 text-center">
+            <span class="text-blue-600 font-bold uppercase tracking-widest text-xs">Artikel Terkini</span>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mt-4 mb-6">Inspirasi & Tips Hunian</h1>
+            <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Temukan berbagai informasi menarik mulai dari tips hemat, dekorasi kamar, hingga rekomendasi kuliner di sekitar kos Anda.</p>
+        </div>
+    </header>
+
+    <div class="sticky top-[72px] z-40 bg-white/80 backdrop-blur-md py-6 border-b">
+        <div class="container mx-auto px-6">
+            <div class="relative max-w-2xl mx-auto">
+                <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+                <input type="text" id="blogSearch" placeholder="Cari judul artikel (misal: dekorasi, hemat...)" 
+                    class="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-100 border-none focus:ring-2 focus:ring-blue-600 outline-none font-medium transition-all">
+            </div>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-6 py-16">
+        <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            </div>
+
+        <div id="noResults" class="hidden text-center py-20">
+            <div class="bg-slate-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i class="fa-solid fa-book-open text-slate-400 text-3xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900">Artikel tidak ditemukan</h3>
+            <p class="text-slate-500 mt-2">Coba kata kunci lain yang lebih umum.</p>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t pt-20 pb-10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div>
+                    <h4 class="font-bold text-lg mb-6 text-blue-700"><i class="fa-solid fa-star"></i> Kost Star</h4>
+                    <p class="text-gray-500 text-sm">Platform cari kos nomor #1 di Indonesia yang memudahkan mahasiswa dan karyawan.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Tautan Cepat</h4>
+                    <ul class="space-y-3 text-gray-500 text-sm">
+                        <li><a href="index.html" class="hover:text-blue-600">Beranda</a></li>
+                        <li><a href="carikost.html" class="hover:text-blue-600">Cari Kos</a></li>
+                        <li><a href="panduan.html" class="hover:text-blue-600">Panduan</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Ikuti Kami</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-slate-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-slate-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-6">Langganan Newsletter</h4>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Email" class="bg-slate-100 border-none rounded-lg p-2 text-sm w-full outline-none focus:ring-1 focus:ring-blue-500">
+                        <button class="bg-blue-600 text-white p-2 rounded-lg"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center text-slate-400 text-xs tracking-widest border-t pt-8 uppercase">
+                KOSTSTAR.ID © 2026 — SEMUA ARTIKEL HAK CIPTA DILINDUNGI
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data Artikel (Mockup Database)
+        const articles = [
+            {
+                title: "5 Cara Dekorasi Kamar Kos Jadi Minimalis",
+                category: "Dekorasi",
+                img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=500&q=80",
+                desc: "Tips menyulap kamar sempit jadi terlihat luas dan estetik dengan biaya minim.",
+                date: "05 Jan 2026"
+            },
+            {
+                title: "Tips Mengatur Keuangan Mahasiswa Rantau",
+                category: "Finansial",
+                img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80",
+                desc: "Cara mengelola uang bulanan agar tidak habis sebelum waktunya bagi anak kost.",
+                date: "02 Jan 2026"
+            },
+            {
+                title: "Rekomendasi Kuliner Malam di Tebet",
+                category: "Kuliner",
+                img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80",
+                desc: "Daftar tempat makan enak dan murah yang wajib dicoba anak kost area Tebet.",
+                date: "30 Des 2025"
+            },
+            {
+                title: "Manfaat Olahraga Ringan Sebelum Ngantor",
+                category: "Kesehatan",
+                img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80",
+                desc: "Tetap bugar meskipun jadwal padat dengan gerakan olahraga simpel di dalam kamar.",
+                date: "28 Des 2025"
+            },
+            {
+                title: "Cari Kos Tanpa Ribet Lewat Kost Star",
+                category: "Update",
+                img: "img/kost1.avif",
+                desc: "Panduan lengkap menggunakan fitur terbaru Kost Star untuk booking kamar.",
+                date: "25 Des 2025"
+            },
+            {
+                title: "Menjaga Keamanan Kamar Kos Saat Mudik",
+                category: "Keamanan",
+                img: "img/kost2.avif",
+                desc: "Langkah-langkah penting untuk memastikan kamar tetap aman saat ditinggal lama.",
+                date: "20 Des 2025"
+            }
+        ];
+
+        const blogGrid = document.getElementById('blogGrid');
+        const blogSearch = document.getElementById('blogSearch');
+        const noResults = document.getElementById('noResults');
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        // Fungsi Render Artikel
+        function displayArticles(filteredArticles) {
+            blogGrid.innerHTML = "";
+            
+            if (filteredArticles.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            filteredArticles.forEach(article => {
+                const card = `
+                    <article class="blog-card bg-white rounded-[2rem] border border-slate-100 overflow-hidden shadow-sm flex flex-col cursor-pointer">
+                        <div class="relative overflow-hidden group">
+                            <img src="${article.img}" alt="${article.title}" class="w-full h-56 object-cover group-hover:scale-110 transition duration-700">
+                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-blue-700 uppercase">${article.category}</span>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <span class="text-xs text-slate-400 font-semibold mb-2">${article.date}</span>
+                            <h3 class="text-xl font-bold text-slate-900 leading-tight mb-4 hover:text-blue-600 transition">${article.title}</h3>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6">${article.desc}</p>
+                            <div class="mt-auto">
+                                <span class="text-blue-700 font-bold text-sm flex items-center gap-2 group">Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></span>
+                            </div>
+                        </div>
+                    </article>
+                `;
+                blogGrid.innerHTML += card;
+            });
+        }
+
+        // Event Listener Live Search
+        blogSearch.addEventListener('input', (e) => {
+            const keyword = e.target.value.toLowerCase();
+            const filtered = articles.filter(article => 
+                article.title.toLowerCase().includes(keyword) || 
+                article.category.toLowerCase().includes(keyword)
+            );
+            displayArticles(filtered);
+        });
+
+        // Toggle Navbar Mobile
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+        });
+
+        // Jalankan Pertama Kali
+        displayArticles(articles);
+    </script>
+    <div class="fixed bottom-6 right-6 flex flex-col gap-4 items-end z-[999]">
+    
+    <div id="cs-popup" class="hidden w-72 md:w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden mb-2 transition-all duration-300 transform translate-y-4 opacity-0">
+        <div class="bg-blue-700 p-4 text-white flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="relative">
+                    <img src="https://i.pravatar.cc/100?u=admin" class="w-10 h-10 rounded-full border-2 border-white/20">
+                    <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
+                </div>
+                <div>
+                    <p class="text-sm font-bold leading-none">Admin Kost Star</p>
+                    <small class="text-xs text-blue-100">Online 24/7</small>
+                </div>
+            </div>
+            <button onclick="toggleCSPopup()" class="text-white/80 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <div class="p-4 h-48 overflow-y-auto bg-slate-50 flex flex-col gap-3">
+            <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm border border-slate-100 max-w-[85%]">
+                <p class="text-xs text-slate-600 leading-relaxed font-medium">Halo! 👋 Selamat datang di Kost Star. Ada yang bisa kami bantu seputar pencarian kos hari ini?</p>
+                <small class="text-[10px] text-slate-400 mt-1 block">13:45</small>
+            </div>
+        </div>
+
+        <div class="p-3 bg-white border-t flex gap-2">
+            <input type="text" placeholder="Tulis pesan..." class="flex-1 bg-slate-100 border-none rounded-xl px-4 py-2 text-sm focus:ring-1 focus:ring-blue-600 outline-none">
+            <button class="bg-blue-700 text-white w-10 h-10 rounded-xl flex items-center justify-center hover:bg-blue-800 transition">
+                <i class="fa-solid fa-paper-plane text-sm"></i>
+            </button>
+        </div>
+    </div>
+
+    <button onclick="toggleCSPopup()" class="flex items-center gap-3 bg-blue-700 text-white px-5 py-3 rounded-full shadow-xl hover:bg-blue-800 hover:scale-105 transition-all duration-300 group">
+        <span class="text-sm font-bold hidden group-hover:block transition-all">Chat Admin</span>
+        <i class="fa-solid fa-headset text-xl"></i>
+    </button>
+
+    <a href="https://wa.me/6281234567890?text=Halo%20Kost%20Star,%20saya%20ingin%20bertanya%20seputar%20unit%20kos." 
+       target="_blank" 
+       class="flex items-center gap-3 bg-green-500 text-white px-5 py-3 rounded-full shadow-xl hover:bg-green-600 hover:scale-105 transition-all duration-300 group">
+        <span class="text-sm font-bold hidden group-hover:block transition-all">WhatsApp Chat</span>
+        <i class="fa-brands fa-whatsapp text-2xl"></i>
+    </a>
+
+</div>
+
+<script>
+    function toggleCSPopup() {
+        const popup = document.getElementById('cs-popup');
+        
+        if (popup.classList.contains('hidden')) {
+            // Tampilkan
+            popup.classList.remove('hidden');
+            setTimeout(() => {
+                popup.classList.remove('translate-y-4', 'opacity-0');
+                popup.classList.add('translate-y-0', 'opacity-100');
+            }, 10);
+        } else {
+            // Sembunyikan
+            popup.classList.add('translate-y-4', 'opacity-0');
+            popup.classList.remove('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                popup.classList.add('hidden');
+            }, 300);
+        }
+    }
+</script>
+</body>
+</html>
