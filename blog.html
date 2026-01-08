@@ -114,34 +114,39 @@
         // Data Artikel (Mockup Database)
         const articles = [
             {
+                id: 0,
                 title: "5 Cara Dekorasi Kamar Kos Jadi Minimalis",
                 category: "Dekorasi",
-                img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=500&q=80",
+                img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1200&q=80",
                 desc: "Tips menyulap kamar sempit jadi terlihat luas dan estetik dengan biaya minim.",
                 date: "05 Jan 2026"
             },
             {
+                id: 1,
                 title: "Tips Mengatur Keuangan Mahasiswa Rantau",
                 category: "Finansial",
-                img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80",
+                img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80",
                 desc: "Cara mengelola uang bulanan agar tidak habis sebelum waktunya bagi anak kost.",
                 date: "02 Jan 2026"
             },
             {
+                id: 2,
                 title: "Rekomendasi Kuliner Malam di Tebet",
                 category: "Kuliner",
-                img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80",
+                img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80",
                 desc: "Daftar tempat makan enak dan murah yang wajib dicoba anak kost area Tebet.",
                 date: "30 Des 2025"
             },
             {
+                id: 3,
                 title: "Manfaat Olahraga Ringan Sebelum Ngantor",
                 category: "Kesehatan",
-                img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80",
+                img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
                 desc: "Tetap bugar meskipun jadwal padat dengan gerakan olahraga simpel di dalam kamar.",
                 date: "28 Des 2025"
             },
             {
+                id: 4,
                 title: "Cari Kos Tanpa Ribet Lewat Kost Star",
                 category: "Update",
                 img: "img/kost1.avif",
@@ -149,11 +154,37 @@
                 date: "25 Des 2025"
             },
             {
+                id: 5,
                 title: "Menjaga Keamanan Kamar Kos Saat Mudik",
                 category: "Keamanan",
                 img: "img/kost2.avif",
                 desc: "Langkah-langkah penting untuk memastikan kamar tetap aman saat ditinggal lama.",
                 date: "20 Des 2025"
+            },
+            // +3 artikel baru (total 9)
+            {
+                id: 6,
+                title: "Checklist Pindahan Kos: Anti Lupa & Anti Ribet",
+                category: "Panduan",
+                img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
+                desc: "Daftar barang wajib, urutan packing, sampai tips hemat ongkir pindahan kos.",
+                date: "12 Jan 2026"
+            },
+            {
+                id: 7,
+                title: "10 Barang Wajib Anak Kos untuk Kamar Lebih Nyaman",
+                category: "Lifestyle",
+                img: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200&q=80",
+                desc: "Mulai dari lampu tidur, organizer, hingga alat masak mini yang fungsional.",
+                date: "10 Jan 2026"
+            },
+            {
+                id: 8,
+                title: "Cara Pilih Kos yang Aman & Strategis (Versi Anak Rantau)",
+                category: "Tips",
+                img: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&w=1200&q=80",
+                desc: "Panduan cek lingkungan, akses transport, aturan kos, dan tanda kos berkualitas.",
+                date: "08 Jan 2026"
             }
         ];
 
@@ -176,20 +207,22 @@
 
             filteredArticles.forEach(article => {
                 const card = `
-                    <article class="blog-card bg-white rounded-[2rem] border border-slate-100 overflow-hidden shadow-sm flex flex-col cursor-pointer">
-                        <div class="relative overflow-hidden group">
-                            <img src="${article.img}" alt="${article.title}" class="w-full h-56 object-cover group-hover:scale-110 transition duration-700">
-                            <span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-blue-700 uppercase">${article.category}</span>
-                        </div>
-                        <div class="p-8 flex flex-col flex-grow">
-                            <span class="text-xs text-slate-400 font-semibold mb-2">${article.date}</span>
-                            <h3 class="text-xl font-bold text-slate-900 leading-tight mb-4 hover:text-blue-600 transition">${article.title}</h3>
-                            <p class="text-slate-500 text-sm leading-relaxed mb-6">${article.desc}</p>
-                            <div class="mt-auto">
-                                <span class="text-blue-700 font-bold text-sm flex items-center gap-2 group">Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></span>
+                    <a href="artikel.html?id=${article.id}" class="block">
+                        <article class="blog-card bg-white rounded-[2rem] border border-slate-100 overflow-hidden shadow-sm flex flex-col cursor-pointer">
+                            <div class="relative overflow-hidden group">
+                                <img src="${article.img}" alt="${article.title}" class="w-full h-56 object-cover group-hover:scale-110 transition duration-700">
+                                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-blue-700 uppercase">${article.category}</span>
                             </div>
-                        </div>
-                    </article>
+                            <div class="p-8 flex flex-col flex-grow">
+                                <span class="text-xs text-slate-400 font-semibold mb-2">${article.date}</span>
+                                <h3 class="text-xl font-bold text-slate-900 leading-tight mb-4 hover:text-blue-600 transition">${article.title}</h3>
+                                <p class="text-slate-500 text-sm leading-relaxed mb-6">${article.desc}</p>
+                                <div class="mt-auto">
+                                    <span class="text-blue-700 font-bold text-sm flex items-center gap-2 group">Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i></span>
+                                </div>
+                            </div>
+                        </article>
+                    </a>
                 `;
                 blogGrid.innerHTML += card;
             });
