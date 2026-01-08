@@ -5,13 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Artikel - Kost Star</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- FontAwesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-
-  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
@@ -25,7 +20,7 @@
 
 <body>
 
-  <!-- NAV (tetap pakai struktur mirip halaman blog, biar konsisten brand) -->
+  <!-- NAV -->
   <nav class="bg-white sticky top-0 z-[100] shadow-sm border-b border-gray-100">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
       <div class="flex items-center gap-8">
@@ -60,20 +55,20 @@
       <div class="max-w-3xl mx-auto">
         <div class="flex flex-wrap gap-3 items-center mb-4">
           <span id="articleCategory" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full">
-            <i class="fa-solid fa-tag"></i> Dekorasi
+            <i class="fa-solid fa-tag"></i> Kategori
           </span>
-          <span id="articleDate" class="text-xs font-semibold text-slate-400">05 Jan 2026</span>
+          <span id="articleDate" class="text-xs font-semibold text-slate-400">Tanggal</span>
           <span class="text-xs font-semibold text-slate-400">•</span>
           <span class="text-xs font-semibold text-slate-500">Estimasi baca <span id="readTime">6</span> menit</span>
         </div>
 
         <!-- Judul (H1) -->
         <h1 id="articleTitle" class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
-          5 Cara Dekorasi Kamar Kos Jadi Minimalis
+          Judul Artikel
         </h1>
 
         <p id="articleLead" class="text-slate-500 text-lg md:text-xl mt-4 leading-relaxed">
-          Tips menyulap kamar sempit jadi terlihat luas dan estetik dengan biaya minim.
+          Lead artikel
         </p>
 
         <!-- Tombol Share -->
@@ -111,15 +106,15 @@
         <!-- Gambar utama + deskripsi -->
         <figure class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm">
           <img id="heroImg"
-               src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=80"
-               alt="Dekorasi kamar kos minimalis"
+               src=""
+               alt="Gambar utama artikel"
                class="w-full h-[240px] md:h-[420px] object-cover">
           <figcaption id="heroCaption" class="px-6 py-4 text-sm text-slate-500">
-            Foto: Inspirasi kamar kos minimalis dengan tone cerah agar terasa luas.
+            Deskripsi foto utama.
           </figcaption>
         </figure>
 
-        <!-- TOC otomatis (baca H2/H3), bisa buka-tutup -->
+        <!-- TOC otomatis (H2/H3), bisa buka-tutup -->
         <section class="mt-8 bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden">
           <button id="tocToggle"
                   class="w-full flex items-center justify-between px-6 py-5 font-extrabold text-slate-900">
@@ -133,238 +128,44 @@
           </div>
         </section>
 
-        <!-- Isi Artikel -->
-        <section id="content" class="mt-8 space-y-8">
+        <!-- Isi Artikel (akan dirender dari JS) -->
+        <section id="content" class="mt-8 space-y-8"></section>
 
-          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
-            <h2>Kenapa Gaya Minimalis Cocok untuk Anak Kos?</h2>
-            <p>
-              Kamar kos umumnya memiliki ukuran terbatas, jadi gaya minimalis membantu ruangan terlihat rapi, lega,
-              dan nyaman. Fokusnya bukan sekadar “sedikit barang”, tapi memilih barang yang fungsional dan tetap enak dilihat.
-            </p>
-
-            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
-              “Minimalis itu bukan soal mengurangi sampai kosong, tapi soal memilih yang benar-benar kamu butuhkan.”
-            </blockquote>
-
-            <h2>5 Cara Dekorasi Kamar Kos Jadi Minimalis</h2>
-
-            <h3>1) Tentukan Palet Warna Cerah</h3>
-            <p>
-              Pilih 2–3 warna utama (misalnya putih, krem, abu muda) agar ruangan terasa lebih luas.
-              Gunakan warna aksen (biru/olive) pada detail kecil seperti sarung bantal atau poster.
-            </p>
-
-            <figure class="mt-6">
-              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"
-                   alt="Palet warna cerah untuk kamar minimalis"
-                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
-              <figcaption class="text-sm text-slate-500 mt-3">
-                Warna terang + pencahayaan cukup bikin kamar lebih “lega” secara visual.
-              </figcaption>
-            </figure>
-
-            <h3>2) Terapkan Prinsip “Satu Masuk, Satu Keluar”</h3>
-            <p>
-              Setiap ada barang baru (misal baju/jaket), keluarkan satu barang lama untuk donasi/jual.
-              Cara ini menjaga kamar tetap lapang tanpa harus decluttering besar-besaran.
-            </p>
-
-            <h3>3) Manfaatkan Storage Vertikal</h3>
-            <p>
-              Gunakan rak dinding, gantungan pintu, atau organizer vertikal untuk menghemat ruang lantai.
-              Pastikan tetap aman dan tidak merusak dinding (gunakan hook/adhesive yang sesuai aturan kos).
-            </p>
-
-            <h3>4) Dekor Simpel tapi “Berkarakter”</h3>
-            <p>
-              Minimalis bukan berarti hambar. Pilih 1–2 elemen statement seperti
-              cermin bundar, lampu meja estetik, atau satu frame poster besar.
-            </p>
-
-            <h3>5) Rapikan Kabel dan Barang Kecil</h3>
-            <p>
-              Kabel berantakan bikin kamar terlihat “penuh”. Pakai cable organizer dan kotak kecil untuk barang receh
-              (charger, skincare, alat tulis).
-            </p>
-
-            <h2>Checklist Cepat Kamar Kos Minimalis</h2>
-            <ul class="list-disc pl-6">
-              <li>Warna dasar cerah + aksen 1 warna</li>
-              <li>Storage vertikal (rak/organizer)</li>
-              <li>Barang fungsional, kurangi pajangan kecil berlebihan</li>
-              <li>Kabel rapi, meja bersih</li>
-            </ul>
-
-          </div>
-
-          <!-- Gambar promosi GIF -->
-          <section class="bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden">
-            <div class="p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
-              <img
-                src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif"
-                alt="Promo Kost Star"
-                class="w-full md:w-64 h-40 object-cover rounded-2xl border border-slate-100"
-              />
-              <div class="flex-1">
-                <h3 class="text-xl font-extrabold text-slate-900">Lagi cari kos yang rapi & nyaman?</h3>
-                <p class="text-slate-500 mt-2 leading-relaxed">
-                  Pakai Kost Star untuk filter kos sesuai budget, fasilitas, dan lokasi. Biar kamu fokus nyaman tinggal, bukan ribet cari.
-                </p>
-                <div class="mt-4 flex gap-3">
-                  <a href="carikost.html" class="bg-blue-700 text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-blue-800 transition">
-                    Cari Kos Sekarang
-                  </a>
-                  <a href="panduan.html" class="bg-slate-100 text-slate-900 px-5 py-3 rounded-xl font-bold text-sm hover:bg-slate-200 transition">
-                    Lihat Panduan
-                  </a>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- FAQ + Kesimpulan -->
-          <section class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">FAQ</h2>
-
-            <div class="mt-6 space-y-3">
-              <details class="group bg-slate-50 border border-slate-100 rounded-2xl p-5">
-                <summary class="cursor-pointer font-bold text-slate-900 flex items-center justify-between">
-                  Bagaimana dekor minimalis kalau kamar kos kecil?
-                  <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
-                </summary>
-                <p class="text-slate-600 mt-3 leading-relaxed">
-                  Fokus pada palet warna cerah, storage vertikal, dan kurangi barang kecil yang menumpuk di meja/lemari.
-                </p>
-              </details>
-
-              <details class="group bg-slate-50 border border-slate-100 rounded-2xl p-5">
-                <summary class="cursor-pointer font-bold text-slate-900 flex items-center justify-between">
-                  Dekorasi apa yang paling “worth it” untuk kamar kos?
-                  <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
-                </summary>
-                <p class="text-slate-600 mt-3 leading-relaxed">
-                  Cermin untuk efek luas, lampu meja untuk ambience, dan organizer kabel agar tampilan rapi.
-                </p>
-              </details>
-
-              <details class="group bg-slate-50 border border-slate-100 rounded-2xl p-5">
-                <summary class="cursor-pointer font-bold text-slate-900 flex items-center justify-between">
-                  Apakah minimalis itu harus mahal?
-                  <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
-                </summary>
-                <p class="text-slate-600 mt-3 leading-relaxed">
-                  Tidak. Minimalis lebih tentang pemilihan barang yang tepat dan rapi, bukan tentang brand mahal.
-                </p>
-              </details>
-            </div>
-
-            <hr class="my-8 border-slate-100">
-
-            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Kesimpulan</h2>
-            <p class="text-slate-600 mt-4 leading-relaxed">
-              Kamar kos minimalis bisa kamu wujudkan dengan cara sederhana: palet warna cerah, storage vertikal,
-              pilih dekor statement secukupnya, dan biasakan merapikan barang kecil. Hasilnya kamar terasa lebih luas,
-              rapi, dan bikin betah.
-            </p>
-          </section>
-
-          <!-- Baca Juga (minimal 2) -->
-          <section class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Baca Juga</h2>
-            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <a href="artikel.html?id=2" class="card-hover bg-slate-50 border border-slate-100 rounded-2xl p-6 block">
-                <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">Finansial</p>
-                <h3 class="text-lg font-extrabold text-slate-900 mt-2">Tips Mengatur Keuangan Mahasiswa Rantau</h3>
-                <p class="text-sm text-slate-500 mt-2">Cara mengelola uang bulanan agar tidak cepat habis.</p>
-              </a>
-
-              <a href="artikel.html?id=6" class="card-hover bg-slate-50 border border-slate-100 rounded-2xl p-6 block">
-                <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">Keamanan</p>
-                <h3 class="text-lg font-extrabold text-slate-900 mt-2">Menjaga Keamanan Kamar Kos Saat Mudik</h3>
-                <p class="text-sm text-slate-500 mt-2">Langkah penting agar kamar aman saat ditinggal lama.</p>
-              </a>
-            </div>
-          </section>
-
-          <!-- Profil Penulis -->
-          <section class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10">
-            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Profil Penulis</h2>
-            <div class="mt-6 flex flex-col md:flex-row gap-6 items-start">
-              <img src="https://i.pravatar.cc/160?u=koststar-writer"
-                   alt="Foto penulis"
-                   class="w-20 h-20 rounded-2xl border border-slate-100 object-cover">
-              <div class="flex-1">
-                <p class="font-extrabold text-slate-900">Tim Editorial Kost Star</p>
-                <p class="text-slate-500 mt-1 leading-relaxed">
-                  Menulis seputar kehidupan anak kos: dekorasi, finansial, keamanan, dan tips nyaman tinggal di perantauan.
-                </p>
-                <div class="mt-4 flex gap-3">
-                  <a href="#" class="text-blue-700 font-bold text-sm hover:underline"><i class="fa-brands fa-instagram"></i> Instagram</a>
-                  <a href="#" class="text-blue-700 font-bold text-sm hover:underline"><i class="fa-brands fa-tiktok"></i> TikTok</a>
-                </div>
-              </div>
-            </div>
-          </section>
-
+        <!-- Baca Juga (minimal 2) -->
+        <section class="mt-8 bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Baca Juga</h2>
+          <div id="bacaJugaWrap" class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6"></div>
         </section>
+
+        <!-- Profil Penulis -->
+        <section class="mt-8 bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Profil Penulis</h2>
+          <div class="mt-6 flex flex-col md:flex-row gap-6 items-start">
+            <img id="authorAvatar" src="https://i.pravatar.cc/160?u=koststar-writer"
+                 alt="Foto penulis"
+                 class="w-20 h-20 rounded-2xl border border-slate-100 object-cover">
+            <div class="flex-1">
+              <p id="authorName" class="font-extrabold text-slate-900">Tim Editorial Kost Star</p>
+              <p id="authorBio" class="text-slate-500 mt-1 leading-relaxed">
+                Menulis seputar kehidupan anak kos: dekorasi, finansial, keamanan, dan tips nyaman tinggal di perantauan.
+              </p>
+              <div class="mt-4 flex gap-3">
+                <a href="#" class="text-blue-700 font-bold text-sm hover:underline"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="#" class="text-blue-700 font-bold text-sm hover:underline"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </article>
 
-      <!-- SIDEBAR (3 Artikel Terkait lengkap: gambar, judul, deskripsi, button) -->
+      <!-- SIDEBAR (3 Artikel Terkait: gambar, judul, deskripsi, button) -->
       <aside class="lg:col-span-4 space-y-6">
         <div class="sticky top-[96px] space-y-6">
 
           <section class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7">
             <h3 class="text-lg font-extrabold text-slate-900">Artikel Terkait</h3>
-
-            <div class="mt-6 space-y-5">
-
-              <!-- 1 -->
-              <div class="card-hover bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80"
-                     alt="Keuangan anak kos"
-                     class="w-full h-36 object-cover">
-                <div class="p-5">
-                  <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">Finansial</p>
-                  <h4 class="text-base font-extrabold text-slate-900 mt-2">Tips Mengatur Keuangan Mahasiswa Rantau</h4>
-                  <p class="text-sm text-slate-500 mt-2">Biar uang bulanan lebih awet dan terencana.</p>
-                  <a href="artikel.html?id=2" class="inline-flex mt-4 bg-blue-700 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-blue-800 transition">
-                    Baca Selengkapnya
-                  </a>
-                </div>
-              </div>
-
-              <!-- 2 -->
-              <div class="card-hover bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80"
-                     alt="Olahraga ringan"
-                     class="w-full h-36 object-cover">
-                <div class="p-5">
-                  <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">Kesehatan</p>
-                  <h4 class="text-base font-extrabold text-slate-900 mt-2">Manfaat Olahraga Ringan Sebelum Ngantor</h4>
-                  <p class="text-sm text-slate-500 mt-2">Gerakan simpel biar badan tetap bugar.</p>
-                  <a href="artikel.html?id=4" class="inline-flex mt-4 bg-blue-700 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-blue-800 transition">
-                    Baca Selengkapnya
-                  </a>
-                </div>
-              </div>
-
-              <!-- 3 -->
-              <div class="card-hover bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
-                     alt="Kuliner malam tebet"
-                     class="w-full h-36 object-cover">
-                <div class="p-5">
-                  <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">Kuliner</p>
-                  <h4 class="text-base font-extrabold text-slate-900 mt-2">Rekomendasi Kuliner Malam di Tebet</h4>
-                  <p class="text-sm text-slate-500 mt-2">Enak, murah, dan cocok buat anak kos.</p>
-                  <a href="artikel.html?id=3" class="inline-flex mt-4 bg-blue-700 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-blue-800 transition">
-                    Baca Selengkapnya
-                  </a>
-                </div>
-              </div>
-
-            </div>
+            <div id="relatedWrap" class="mt-6 space-y-5"></div>
           </section>
 
           <!-- Promo kecil -->
@@ -449,7 +250,7 @@
       btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     })();
 
-    // TOC builder (H2 & H3)
+    // Helpers
     function slugify(text) {
       return text.toLowerCase()
         .replace(/[^\w\s-]/g, '')
@@ -457,40 +258,6 @@
         .replace(/\s+/g, '-');
     }
 
-    function buildTOC() {
-      const content = document.getElementById('content');
-      const toc = document.getElementById('toc');
-
-      const headings = content.querySelectorAll('h2, h3');
-      toc.innerHTML = '';
-
-      headings.forEach(h => {
-        if (!h.id) h.id = slugify(h.innerText);
-
-        const level = h.tagName.toLowerCase(); // h2/h3
-        const item = document.createElement('div');
-        item.className = `toc-item ${level === 'h3' ? 'ml-4' : ''}`;
-
-        item.innerHTML = `
-          <a href="#${h.id}" class="text-slate-700 font-semibold ${level === 'h3' ? 'text-[13px]' : 'text-sm'}">
-            ${level === 'h3' ? '— ' : ''}${h.innerText}
-          </a>
-        `;
-        toc.appendChild(item);
-      });
-    }
-
-    // TOC toggle
-    const tocToggle = document.getElementById('tocToggle');
-    const tocWrap = document.getElementById('tocWrap');
-    const tocIcon = document.getElementById('tocIcon');
-
-    tocToggle.addEventListener('click', () => {
-      tocWrap.classList.toggle('hidden');
-      tocIcon.classList.toggle('rotate-180');
-    });
-
-    // Share links
     function setupShare() {
       const url = encodeURIComponent(window.location.href);
       const title = encodeURIComponent(document.getElementById('articleTitle').innerText);
@@ -512,41 +279,570 @@
       });
     }
 
-    // (Opsional) Render artikel via query param ?id=1 dst
-    // Saat ini halaman sudah siap dipakai sebagai template. Kamu bisa kembangkan mapping artikel di sini.
-    function loadArticleFromQuery() {
-      const params = new URLSearchParams(window.location.search);
-      const id = params.get('id');
+    function buildTOC() {
+      const content = document.getElementById('content');
+      const toc = document.getElementById('toc');
+      const headings = content.querySelectorAll('h2, h3');
+      toc.innerHTML = '';
 
-      // Mock data minimal (samakan id dengan halaman blog kamu)
-      const data = {
-        "1": {
-          title: "5 Cara Dekorasi Kamar Kos Jadi Minimalis",
-          category: "Dekorasi",
-          date: "05 Jan 2026",
-          lead: "Tips menyulap kamar sempit jadi terlihat luas dan estetik dengan biaya minim.",
-          heroImg: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=80",
-          heroCaption: "Foto: Inspirasi kamar kos minimalis dengan tone cerah agar terasa luas.",
-          readTime: 6
-        }
-      };
+      headings.forEach(h => {
+        if (!h.id) h.id = slugify(h.innerText);
+        const level = h.tagName.toLowerCase();
 
-      if (!id || !data[id]) return;
-
-      document.getElementById('articleTitle').innerText = data[id].title;
-      document.getElementById('articleCategory').innerHTML = `<i class="fa-solid fa-tag"></i> ${data[id].category}`;
-      document.getElementById('articleDate').innerText = data[id].date;
-      document.getElementById('articleLead').innerText = data[id].lead;
-      document.getElementById('heroImg').src = data[id].heroImg;
-      document.getElementById('heroCaption').innerText = data[id].heroCaption;
-      document.getElementById('readTime').innerText = data[id].readTime;
-      document.title = data[id].title + " - Kost Star";
+        const item = document.createElement('div');
+        item.className = `toc-item ${level === 'h3' ? 'ml-4' : ''}`;
+        item.innerHTML = `
+          <a href="#${h.id}" class="text-slate-700 font-semibold ${level === 'h3' ? 'text-[13px]' : 'text-sm'}">
+            ${level === 'h3' ? '— ' : ''}${h.innerText}
+          </a>
+        `;
+        toc.appendChild(item);
+      });
     }
 
-    // init
-    loadArticleFromQuery();
-    buildTOC();
-    setupShare();
+    // TOC toggle
+    const tocToggle = document.getElementById('tocToggle');
+    const tocWrap = document.getElementById('tocWrap');
+    const tocIcon = document.getElementById('tocIcon');
+    tocToggle.addEventListener('click', () => {
+      tocWrap.classList.toggle('hidden');
+      tocIcon.classList.toggle('rotate-180');
+    });
+
+    // ====== DATA 9 ARTIKEL (1 FILE) ======
+    const ARTICLES = {
+      1: {
+        title: "5 Cara Dekorasi Kamar Kos Jadi Minimalis",
+        category: "Dekorasi",
+        date: "05 Jan 2026",
+        readTime: 6,
+        lead: "Tips menyulap kamar sempit jadi terlihat luas dan estetik dengan biaya minim.",
+        heroImg: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=80",
+        heroCaption: "Foto: Inspirasi kamar kos minimalis dengan tone cerah agar terasa luas.",
+        promoGif: "https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif",
+        contentHTML: `
+          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
+            <h2>Kenapa Gaya Minimalis Cocok untuk Anak Kos?</h2>
+            <p>Kamar kos cenderung terbatas, jadi gaya minimalis membantu ruangan terlihat rapi, lega, dan nyaman. Kuncinya memilih barang fungsional dan menata dengan proporsional.</p>
+
+            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
+              “Minimalis itu bukan soal mengurangi sampai kosong, tapi soal memilih yang benar-benar kamu butuhkan.”
+            </blockquote>
+
+            <h2>5 Cara Dekorasi Kamar Kos Jadi Minimalis</h2>
+
+            <h3>1) Tentukan Palet Warna Cerah</h3>
+            <p>Pilih 2–3 warna utama (putih/krem/abu muda). Tambahkan aksen warna pada detail kecil.</p>
+
+            <figure class="mt-6">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"
+                   alt="Palet warna cerah untuk kamar minimalis"
+                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
+              <figcaption class="text-sm text-slate-500 mt-3">Warna terang + pencahayaan cukup bikin kamar lebih “lega”.</figcaption>
+            </figure>
+
+            <h3>2) Terapkan Prinsip “Satu Masuk, Satu Keluar”</h3>
+            <p>Setiap ada barang baru, keluarkan satu barang lama (donasi/jual). Kamar tetap lapang tanpa decluttering besar-besaran.</p>
+
+            <h3>3) Manfaatkan Storage Vertikal</h3>
+            <p>Gunakan rak dinding/organizer vertikal untuk menghemat ruang lantai. Sesuaikan dengan aturan kos.</p>
+
+            <h3>4) Dekor Simpel tapi Berkarakter</h3>
+            <p>Pilih 1–2 elemen statement seperti cermin bundar, lampu meja estetik, atau satu frame poster besar.</p>
+
+            <h3>5) Rapikan Kabel dan Barang Kecil</h3>
+            <p>Pakai cable organizer dan kotak kecil untuk barang receh (charger, alat tulis, skincare).</p>
+
+            <h2>FAQ</h2>
+            <h3>Minimalis harus mahal?</h3>
+            <p>Tidak. Minimalis lebih tentang memilih barang yang tepat dan menata rapi.</p>
+
+            <h2>Kesimpulan</h2>
+            <p>Mulai dari warna cerah, storage vertikal, dekor statement secukupnya, dan kebiasaan rapi. Hasilnya kamar lebih lega dan nyaman.</p>
+          </div>
+        `,
+        faq: [
+          { q: "Bagaimana dekor minimalis kalau kamar kos kecil?", a: "Fokus pada warna cerah, storage vertikal, dan kurangi barang kecil yang menumpuk." },
+          { q: "Dekor apa yang paling worth it?", a: "Cermin untuk efek luas, lampu meja untuk ambience, dan organizer kabel untuk kerapian." },
+          { q: "Minimalis harus buang banyak barang?", a: "Tidak harus. Mulai dari mengurangi yang jarang dipakai dan terapkan 'satu masuk satu keluar'." },
+        ],
+        conclusion: "Kamar kos minimalis bisa diwujudkan dengan langkah sederhana: palet cerah, storage vertikal, dekor statement secukupnya, serta kebiasaan merapikan barang kecil."
+      },
+
+      2: {
+        title: "Tips Mengatur Keuangan Mahasiswa Rantau",
+        category: "Finansial",
+        date: "02 Jan 2026",
+        readTime: 7,
+        lead: "Cara mengelola uang bulanan agar tidak habis sebelum waktunya bagi anak kost.",
+        heroImg: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1400&q=80",
+        heroCaption: "Foto: Catatan budget sederhana membantu pengeluaran lebih terkontrol.",
+        promoGif: "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif",
+        contentHTML: `
+          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
+            <h2>Mulai dari Pahami Arus Uang</h2>
+            <p>Catat pemasukan dan pengeluaran wajib (kos, makan, transport). Baru sisihkan tabungan.</p>
+
+            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
+              “Uang aman bukan karena besar, tapi karena terencana.”
+            </blockquote>
+
+            <h2>Langkah Praktis Mengatur Keuangan</h2>
+            <h3>1) Pakai Metode 50/30/20</h3>
+            <p>50% kebutuhan, 30% keinginan, 20% tabungan/investasi. Sesuaikan kondisi.</p>
+
+            <h3>2) Buat Amplop Digital</h3>
+            <p>Pisahkan rekening/e-wallet untuk makan, transport, dan hiburan.</p>
+
+            <h3>3) Tetapkan “Batas Jajan” Mingguan</h3>
+            <p>Supaya tidak kebobolan di minggu pertama.</p>
+
+            <figure class="mt-6">
+              <img src="https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1400&q=80"
+                   alt="Budgeting sederhana"
+                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
+              <figcaption class="text-sm text-slate-500 mt-3">Budgeting ringan yang konsisten lebih efektif daripada rencana ribet.</figcaption>
+            </figure>
+
+            <h2>Kesimpulan</h2>
+            <p>Catat pengeluaran, buat batasan, dan sisihkan tabungan dari awal. Keuangan anak kos jadi lebih stabil.</p>
+          </div>
+        `,
+        faq: [
+          { q: "Kalau pemasukan pas-pasan, gimana menabung?", a: "Mulai kecil (misal 5–10%), yang penting konsisten. Naikkan bertahap." },
+          { q: "Lebih baik cash atau e-wallet?", a: "Campur: cash untuk harian, e-wallet untuk transaksi terencana dengan limit." },
+          { q: "Cara mengurangi pengeluaran terbesar anak kos?", a: "Biasanya makan & jajan. Coba meal prep dan batasi delivery." },
+        ],
+        conclusion: "Kunci finansial anak kos: catat, batasi, pisahkan pos, dan tabung di awal. Konsisten lebih penting daripada nominal besar."
+      },
+
+      3: {
+        title: "Rekomendasi Kuliner Malam di Tebet",
+        category: "Kuliner",
+        date: "30 Des 2025",
+        readTime: 6,
+        lead: "Daftar tempat makan enak dan murah yang wajib dicoba anak kost area Tebet.",
+        heroImg: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1400&q=80",
+        heroCaption: "Foto: Kuliner malam jadi solusi saat lapar setelah aktivitas seharian.",
+        promoGif: "https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif",
+        contentHTML: `
+          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
+            <h2>Kenapa Tebet Favorit Buat Kulineran?</h2>
+            <p>Variasi makanan banyak, jam buka panjang, dan banyak opsi ramah kantong.</p>
+
+            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
+              “Kuliner malam terbaik adalah yang enak, dekat, dan bikin dompet aman.”
+            </blockquote>
+
+            <h2>Spot Kuliner Malam yang Wajib Dicoba</h2>
+            <h3>1) Nasi goreng & mie tek-tek</h3>
+            <p>Hangat, cepat, dan cocok buat pengganjal lapar malam.</p>
+            <h3>2) Ayam geprek level</h3>
+            <p>Pilihan level pedas bikin nagih. Cari yang porsinya pas dan sambalnya fresh.</p>
+            <h3>3) Warmindo / Indomie kekinian</h3>
+            <p>Budget-friendly, menu variatif, cocok buat nongkrong sebentar.</p>
+
+            <figure class="mt-6">
+              <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1400&q=80"
+                   alt="Street food malam"
+                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
+              <figcaption class="text-sm text-slate-500 mt-3">Cari tempat yang higienis dan ramai untuk opsi aman.</figcaption>
+            </figure>
+
+            <h2>Kesimpulan</h2>
+            <p>Pilih kuliner malam yang dekat, bersih, dan sesuai budget. Tebet punya banyak pilihan yang aman untuk anak kos.</p>
+          </div>
+        `,
+        faq: [
+          { q: "Tips cari kuliner malam yang higienis?", a: "Pilih tempat ramai, alat masak bersih, dan bahan terlihat segar." },
+          { q: "Biar hemat pas kulineran?", a: "Tentukan budget, hindari add-on impulsif, dan pilih minum air mineral." },
+          { q: "Aman makan larut malam?", a: "Sesekali aman, tapi jaga porsi dan pilih menu yang tidak terlalu berminyak." },
+        ],
+        conclusion: "Tebet punya banyak kuliner malam ramah anak kos. Utamakan higienitas, porsi pas, dan budget terkontrol."
+      },
+
+      4: {
+        title: "Manfaat Olahraga Ringan Sebelum Ngantor",
+        category: "Kesehatan",
+        date: "28 Des 2025",
+        readTime: 5,
+        lead: "Tetap bugar meskipun jadwal padat dengan gerakan olahraga simpel di dalam kamar.",
+        heroImg: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1400&q=80",
+        heroCaption: "Foto: Gerakan ringan 10 menit bisa meningkatkan energi seharian.",
+        promoGif: "https://media.giphy.com/media/26tPplGWjN0xLybiU/giphy.gif",
+        contentHTML: `
+          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
+            <h2>Olahraga Pagi = Energi Lebih Stabil</h2>
+            <p>Gerakan ringan bantu sirkulasi darah, bikin fokus, dan mengurangi pegal.</p>
+
+            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
+              “10 menit gerak lebih baik daripada 0 menit.”
+            </blockquote>
+
+            <h2>Rangkaian 10 Menit di Kamar</h2>
+            <h3>1) Peregangan leher & bahu (2 menit)</h3>
+            <h3>2) Squat ringan (3 menit)</h3>
+            <h3>3) Plank (1 menit)</h3>
+            <h3>4) Jalan di tempat / jumping jack pelan (4 menit)</h3>
+
+            <figure class="mt-6">
+              <img src="https://images.unsplash.com/photo-1599058917765-2f6b0b63c5e8?auto=format&fit=crop&w=1400&q=80"
+                   alt="Stretching pagi"
+                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
+              <figcaption class="text-sm text-slate-500 mt-3">Mulai pelan, fokus teknik, dan konsisten.</figcaption>
+            </figure>
+
+            <h2>Kesimpulan</h2>
+            <p>Olahraga ringan pagi bikin badan lebih siap kerja dan mengurangi stres. Cukup 10 menit, yang penting rutin.</p>
+          </div>
+        `,
+        faq: [
+          { q: "Harus olahraga berat?", a: "Tidak. Mulai dari ringan dulu agar konsisten." },
+          { q: "Kapan waktu terbaik?", a: "Pagi sebelum aktivitas, atau saat jeda kerja kalau pagi tidak sempat." },
+          { q: "Olahraga di kamar sempit bisa?", a: "Bisa, pilih gerakan minim ruang seperti stretching, squat, dan plank." },
+        ],
+        conclusion: "Gerakan ringan 10 menit sebelum ngantor membantu energi dan fokus. Konsistensi adalah kunci."
+      },
+
+      5: {
+        title: "Cari Kos Tanpa Ribet Lewat Kost Star",
+        category: "Update",
+        date: "25 Des 2025",
+        readTime: 4,
+        lead: "Panduan lengkap menggunakan fitur terbaru Kost Star untuk booking kamar.",
+        heroImg: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1400&q=80",
+        heroCaption: "Foto: Booking kos makin mudah dengan fitur pencarian yang tepat.",
+        promoGif: "https://media.giphy.com/media/xT9IgG50Fb7Mi0prBC/giphy.gif",
+        contentHTML: `
+          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
+            <h2>Kenapa Pakai Kost Star?</h2>
+            <p>Kamu bisa filter lokasi, harga, fasilitas, dan langsung hubungi pengelola.</p>
+
+            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
+              “Cari kos itu harus cepat, jelas, dan sesuai kebutuhan.”
+            </blockquote>
+
+            <h2>Langkah Booking</h2>
+            <h3>1) Pilih lokasi</h3>
+            <h3>2) Filter fasilitas</h3>
+            <h3>3) Lihat detail dan foto</h3>
+            <h3>4) Chat admin / WA</h3>
+
+            <figure class="mt-6">
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80"
+                   alt="Pencarian kos online"
+                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
+              <figcaption class="text-sm text-slate-500 mt-3">Pastikan baca aturan kos dan cek fasilitas sebelum booking.</figcaption>
+            </figure>
+
+            <h2>Kesimpulan</h2>
+            <p>Dengan filter yang tepat dan info jelas, cari kos jadi lebih cepat dan aman. Kost Star bantu kamu dari awal sampai booking.</p>
+          </div>
+        `,
+        faq: [
+          { q: "Bisa booking tanpa survei?", a: "Bisa, tapi disarankan cek foto detail dan tanya admin untuk memastikan." },
+          { q: "Cara pilih kos yang aman?", a: "Cek lokasi, akses, keamanan, dan aturan tamu." },
+          { q: "Apa yang wajib ditanyakan ke pengelola?", a: "Biaya tambahan, deposit, aturan listrik/air, dan jam malam." },
+        ],
+        conclusion: "Kost Star mempermudah cari kos dengan filter lengkap dan jalur komunikasi cepat. Hasilnya lebih efisien dan minim risiko."
+      },
+
+      6: {
+        title: "Menjaga Keamanan Kamar Kos Saat Mudik",
+        category: "Keamanan",
+        date: "20 Des 2025",
+        readTime: 6,
+        lead: "Langkah-langkah penting untuk memastikan kamar tetap aman saat ditinggal lama.",
+        heroImg: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1400&q=80",
+        heroCaption: "Foto: Keamanan kecil yang konsisten mencegah masalah besar.",
+        promoGif: "https://media.giphy.com/media/3o6Zt6D8F9m4v2rQBO/giphy.gif",
+        contentHTML: `
+          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
+            <h2>Kenapa Persiapan Itu Penting?</h2>
+            <p>Kos yang ditinggal lama rawan pencurian kecil, kebocoran, atau listrik bermasalah.</p>
+
+            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
+              “Aman itu bukan kebetulan, tapi kebiasaan.”
+            </blockquote>
+
+            <h2>Checklist Keamanan Saat Mudik</h2>
+            <h3>1) Cabut listrik yang tidak perlu</h3>
+            <h3>2) Simpan barang berharga di tempat aman</h3>
+            <h3>3) Kunci pintu dan jendela, tambah gembok bila boleh</h3>
+            <h3>4) Titip info ke pengelola kos</h3>
+
+            <figure class="mt-6">
+              <img src="https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=1400&q=80"
+                   alt="Kunci dan keamanan"
+                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
+              <figcaption class="text-sm text-slate-500 mt-3">Kunci berkualitas + kebiasaan rapi adalah kombinasi terbaik.</figcaption>
+            </figure>
+
+            <h2>Kesimpulan</h2>
+            <p>Persiapkan kamar sebelum mudik: listrik aman, barang berharga tersimpan, dan koordinasi dengan pengelola. Mudik jadi tenang.</p>
+          </div>
+        `,
+        faq: [
+          { q: "Perlu kasih tahu pengelola?", a: "Ya, agar mereka bisa memantau dan tahu kamar kosong." },
+          { q: "Barang berharga sebaiknya ditaruh di mana?", a: "Jika memungkinkan, bawa pulang. Kalau tidak, simpan di brankas kecil atau titip keluarga." },
+          { q: "Harus cabut semua colokan?", a: "Cabut yang tidak penting. Sisakan yang aman dan memang diperlukan." },
+        ],
+        conclusion: "Keamanan kos saat mudik bisa dijaga dengan checklist sederhana. Yang penting disiplin sebelum berangkat."
+      },
+
+      7: {
+        title: "Checklist Pindahan Anak Kos Anti Ribet",
+        category: "Tips",
+        date: "18 Des 2025",
+        readTime: 5,
+        lead: "Biar pindahan rapi, cepat, dan nggak ada yang ketinggalan.",
+        heroImg: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80",
+        heroCaption: "Foto: Packing terstruktur bikin pindahan jauh lebih ringan.",
+        promoGif: "https://media.giphy.com/media/3o6ZtaO9BZHcOjmErm/giphy.gif",
+        contentHTML: `
+          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
+            <h2>Mulai dari Inventaris</h2>
+            <p>Catat barang besar dan kecil. Tentukan mana yang dibawa, dijual, atau didonasikan.</p>
+
+            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
+              “Packing itu soal sistem, bukan soal kuat.”
+            </blockquote>
+
+            <h2>Checklist Pindahan</h2>
+            <h3>1) Siapkan kardus dan label</h3>
+            <h3>2) Pisahkan barang fragile</h3>
+            <h3>3) Buat tas “survival” 1 hari</h3>
+
+            <figure class="mt-6">
+              <img src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1400&q=80"
+                   alt="Packing kardus"
+                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
+              <figcaption class="text-sm text-slate-500 mt-3">Label tiap kardus mempercepat unpacking.</figcaption>
+            </figure>
+
+            <h2>Kesimpulan</h2>
+            <p>Pindahan anti ribet dimulai dari inventaris, label, dan tas survival. Semuanya jadi lebih rapi dan cepat.</p>
+          </div>
+        `,
+        faq: [
+          { q: "Kapan waktu terbaik packing?", a: "Mulai 5–7 hari sebelum pindahan untuk menghindari panik." },
+          { q: "Apa itu tas survival?", a: "Tas isi kebutuhan 1 hari (baju ganti, charger, toiletries) agar tidak bongkar kardus." },
+          { q: "Barang fragile aman pakai apa?", a: "Bubble wrap atau kain bekas, lalu beri label FRAGILE." },
+        ],
+        conclusion: "Dengan checklist dan sistem label, pindahan anak kos bisa jauh lebih cepat, rapi, dan minim drama."
+      },
+
+      8: {
+        title: "Cara Bikin Kamar Kos Wangi dan Nggak Pengap",
+        category: "Kenyamanan",
+        date: "12 Des 2025",
+        readTime: 6,
+        lead: "Trik sederhana bikin kamar lebih segar setiap hari.",
+        heroImg: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80",
+        heroCaption: "Foto: Sirkulasi udara + kebersihan rutin bikin kamar selalu segar.",
+        promoGif: "https://media.giphy.com/media/l0MYC0LajbaPoEADu/giphy.gif",
+        contentHTML: `
+          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
+            <h2>Penyebab Kamar Pengap</h2>
+            <p>Biasanya karena sirkulasi kurang, pakaian lembap, dan sampah menumpuk.</p>
+
+            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
+              “Kamar wangi itu hasil kebiasaan, bukan parfum semata.”
+            </blockquote>
+
+            <h2>Langkah Biar Kamar Segar</h2>
+            <h3>1) Buka jendela minimal 15 menit</h3>
+            <h3>2) Pisahkan baju kotor dan keringkan handuk</h3>
+            <h3>3) Pakai pewangi secukupnya</h3>
+
+            <figure class="mt-6">
+              <img src="https://images.unsplash.com/photo-1527515637462-cff94eecc1ac?auto=format&fit=crop&w=1400&q=80"
+                   alt="Kamar segar"
+                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
+              <figcaption class="text-sm text-slate-500 mt-3">Aromanya akan lebih “clean” jika sumber lembap dibereskan.</figcaption>
+            </figure>
+
+            <h2>Kesimpulan</h2>
+            <p>Kunci kamar wangi: sirkulasi, kain tidak lembap, sampah tidak menumpuk. Pewangi hanya pelengkap.</p>
+          </div>
+        `,
+        faq: [
+          { q: "Pewangi apa yang bagus untuk kamar kecil?", a: "Gunakan yang mild seperti reed diffuser kecil atau spray ringan." },
+          { q: "Kenapa kamar tetap bau walau pakai parfum?", a: "Karena sumber bau (lembap/sampah) belum dibersihkan." },
+          { q: "Perlu air purifier?", a: "Opsional. Kalau budget ada dan kamar lembap, itu bisa membantu." },
+        ],
+        conclusion: "Kamar segar itu tentang sirkulasi dan kebersihan rutin. Hilangkan sumber bau dulu, baru tambahkan pewangi."
+      },
+
+      9: {
+        title: "Rutinitas Malam Anak Kos Biar Tidur Lebih Nyenyak",
+        category: "Lifestyle",
+        date: "08 Des 2025",
+        readTime: 6,
+        lead: "Bikin kualitas tidur naik dengan kebiasaan kecil sebelum tidur.",
+        heroImg: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1400&q=80",
+        heroCaption: "Foto: Rutinitas malam yang tenang bikin tidur lebih berkualitas.",
+        promoGif: "https://media.giphy.com/media/3o7aCTfyhYawdOXcFW/giphy.gif",
+        contentHTML: `
+          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
+            <h2>Kenapa Rutinitas Malam Penting?</h2>
+            <p>Otak butuh sinyal bahwa hari sudah selesai. Rutinitas membantu transisi ke mode istirahat.</p>
+
+            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
+              “Tidur nyenyak itu dibangun sejak 1 jam sebelum tidur.”
+            </blockquote>
+
+            <h2>Rutinitas 30–60 Menit</h2>
+            <h3>1) Rapikan area tidur</h3>
+            <h3>2) Kurangi layar HP</h3>
+            <h3>3) Minum air hangat / teh non-kafein</h3>
+            <h3>4) Stretching ringan</h3>
+
+            <figure class="mt-6">
+              <img src="https://images.unsplash.com/photo-1525097487452-6278ff080c31?auto=format&fit=crop&w=1400&q=80"
+                   alt="Rutinitas tidur"
+                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
+              <figcaption class="text-sm text-slate-500 mt-3">Cahaya redup dan kamar rapi membantu tidur lebih cepat.</figcaption>
+            </figure>
+
+            <h2>Kesimpulan</h2>
+            <p>Rutinitas sederhana sebelum tidur membantu tubuh rileks. Mulai dari hal kecil dan konsisten.</p>
+          </div>
+        `,
+        faq: [
+          { q: "Kalau susah tidur, apa yang bisa dicoba?", a: "Turunkan cahaya, hentikan kafein sore-malam, dan lakukan pernapasan pelan." },
+          { q: "HP harus benar-benar off?", a: "Idealnya iya, tapi minimal aktifkan mode malam dan batasi 30 menit sebelum tidur." },
+          { q: "Jam tidur ideal anak kos?", a: "Sesuaikan aktivitas, namun usahakan konsisten jam tidur dan bangun." },
+        ],
+        conclusion: "Tidur nyenyak dibentuk dari rutinitas kecil. Rapikan kamar, kurangi layar, dan lakukan relaksasi ringan secara konsisten."
+      }
+    };
+
+    // ====== RENDER ======
+    function renderFAQ(faqList, conclusionText) {
+      return `
+        <section class="mt-8 bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">FAQ</h2>
+
+          <div class="mt-6 space-y-3">
+            ${faqList.map(item => `
+              <details class="group bg-slate-50 border border-slate-100 rounded-2xl p-5">
+                <summary class="cursor-pointer font-bold text-slate-900 flex items-center justify-between">
+                  ${item.q}
+                  <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
+                </summary>
+                <p class="text-slate-600 mt-3 leading-relaxed">${item.a}</p>
+              </details>
+            `).join('')}
+          </div>
+
+          <hr class="my-8 border-slate-100">
+
+          <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Kesimpulan</h2>
+          <p class="text-slate-600 mt-4 leading-relaxed">${conclusionText}</p>
+        </section>
+      `;
+    }
+
+    function renderPromoGIF(src) {
+      return `
+        <section class="mt-8 bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden">
+          <div class="p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
+            <img src="${src}" alt="Promo Kost Star"
+                 class="w-full md:w-64 h-40 object-cover rounded-2xl border border-slate-100" />
+            <div class="flex-1">
+              <h3 class="text-xl font-extrabold text-slate-900">Lagi cari kos yang cocok buat gaya hidup kamu?</h3>
+              <p class="text-slate-500 mt-2 leading-relaxed">
+                Gunakan Kost Star untuk filter kos sesuai budget, fasilitas, dan lokasi. Praktis, cepat, dan jelas.
+              </p>
+              <div class="mt-4 flex gap-3">
+                <a href="carikost.html" class="bg-blue-700 text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-blue-800 transition">
+                  Cari Kos Sekarang
+                </a>
+                <a href="blog.html" class="bg-slate-100 text-slate-900 px-5 py-3 rounded-xl font-bold text-sm hover:bg-slate-200 transition">
+                  Kembali ke Blog
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      `;
+    }
+
+    function renderRelatedCards(currentId) {
+      // ambil 3 artikel lain (simple: id setelahnya)
+      const ids = Object.keys(ARTICLES).map(n => parseInt(n, 10)).filter(id => id !== currentId);
+      const picks = ids.slice(0, 3);
+
+      const wrap = document.getElementById('relatedWrap');
+      wrap.innerHTML = picks.map(id => {
+        const a = ARTICLES[id];
+        return `
+          <div class="card-hover bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden">
+            <img src="${a.heroImg}" alt="${a.title}" class="w-full h-36 object-cover">
+            <div class="p-5">
+              <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">${a.category}</p>
+              <h4 class="text-base font-extrabold text-slate-900 mt-2">${a.title}</h4>
+              <p class="text-sm text-slate-500 mt-2">${a.lead}</p>
+              <a href="artikel.html?id=${id}" class="inline-flex mt-4 bg-blue-700 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-blue-800 transition">
+                Baca Selengkapnya
+              </a>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderBacaJuga(currentId) {
+      // minimal 2 artikel berbeda
+      const ids = Object.keys(ARTICLES).map(n => parseInt(n, 10)).filter(id => id !== currentId);
+      const picks = ids.slice(0, 2);
+      const wrap = document.getElementById('bacaJugaWrap');
+
+      wrap.innerHTML = picks.map(id => {
+        const a = ARTICLES[id];
+        return `
+          <a href="artikel.html?id=${id}" class="card-hover bg-slate-50 border border-slate-100 rounded-2xl p-6 block">
+            <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">${a.category}</p>
+            <h3 class="text-lg font-extrabold text-slate-900 mt-2">${a.title}</h3>
+            <p class="text-sm text-slate-500 mt-2">${a.lead}</p>
+          </a>
+        `;
+      }).join('');
+    }
+
+    function renderArticle() {
+      const params = new URLSearchParams(window.location.search);
+      const id = parseInt(params.get('id') || "1", 10);
+      const data = ARTICLES[id] || ARTICLES[1];
+
+      document.title = data.title + " - Kost Star";
+      document.getElementById('articleTitle').innerText = data.title;
+      document.getElementById('articleCategory').innerHTML = `<i class="fa-solid fa-tag"></i> ${data.category}`;
+      document.getElementById('articleDate').innerText = data.date;
+      document.getElementById('readTime').innerText = data.readTime;
+      document.getElementById('articleLead').innerText = data.lead;
+
+      document.getElementById('heroImg').src = data.heroImg;
+      document.getElementById('heroCaption').innerText = data.heroCaption;
+
+      const content = document.getElementById('content');
+      content.innerHTML = `
+        ${data.contentHTML}
+        ${renderPromoGIF(data.promoGif)}
+        ${renderFAQ(data.faq, data.conclusion)}
+      `;
+
+      renderBacaJuga(id);
+      renderRelatedCards(id);
+
+      // build TOC after content rendered
+      buildTOC();
+      setupShare();
+    }
+
+    // Init
+    renderArticle();
   </script>
 
 </body>
