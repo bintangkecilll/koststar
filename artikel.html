@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artikel - Kost Star</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- FontAwesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+    .toc-item a:hover { text-decoration: underline; }
+    .card-hover { transition: all .35s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 18px 25px -10px rgba(0,0,0,.12); }
+    .prose p { line-height: 1.85; }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV (tetap pakai struktur mirip halaman blog, biar konsisten brand) -->
+  <nav class="bg-white sticky top-0 z-[100] shadow-sm border-b border-gray-100">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center gap-2">
+          <i class="fa-solid fa-star"></i> Kost Star
+        </a>
+        <div class="hidden md:flex gap-6 font-medium text-gray-600">
+          <a href="carikost.html" class="hover:text-blue-700 transition">Cari Kos</a>
+          <a href="panduan.html" class="hover:text-blue-700 transition">Panduan</a>
+          <a href="blog.html" class="hover:text-blue-700 transition">Blog</a>
+        </div>
+      </div>
+      <button id="nav-toggle" class="md:hidden text-gray-600 p-2">
+        <i class="fa-solid fa-bars text-2xl"></i>
+      </button>
+      <div class="hidden md:block">
+        <a href="tel:02112345678" class="border-2 border-blue-700 text-blue-700 px-5 py-2 rounded-lg font-semibold flex items-center gap-2 hover:bg-blue-700 hover:text-white transition">
+          <i class="fa-solid fa-phone"></i> 021-1234-5678
+        </a>
+      </div>
+    </div>
+    <div id="nav-menu" class="hidden md:hidden bg-white border-t p-6 space-y-4 shadow-lg absolute w-full">
+      <a href="carikost.html" class="block font-semibold text-gray-700">Cari Kos</a>
+      <a href="panduan.html" class="block font-semibold text-gray-700">Panduan</a>
+      <a href="blog.html" class="block font-semibold text-gray-700">Blog</a>
+    </div>
+  </nav>
+
+  <!-- HEADER ARTIKEL -->
+  <header class="bg-white border-b">
+    <div class="container mx-auto px-6 py-12">
+      <div class="max-w-3xl mx-auto">
+        <div class="flex flex-wrap gap-3 items-center mb-4">
+          <span id="articleCategory" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-blue-700 bg-blue-50 px-3 py-1 rounded-full">
+            <i class="fa-solid fa-tag"></i> Dekorasi
+          </span>
+          <span id="articleDate" class="text-xs font-semibold text-slate-400">05 Jan 2026</span>
+          <span class="text-xs font-semibold text-slate-400">•</span>
+          <span class="text-xs font-semibold text-slate-500">Estimasi baca <span id="readTime">6</span> menit</span>
+        </div>
+
+        <!-- Judul (H1) -->
+        <h1 id="articleTitle" class="text-3xl md:text-5xl font-extrabold text-slate-900 leading-tight">
+          5 Cara Dekorasi Kamar Kos Jadi Minimalis
+        </h1>
+
+        <p id="articleLead" class="text-slate-500 text-lg md:text-xl mt-4 leading-relaxed">
+          Tips menyulap kamar sempit jadi terlihat luas dan estetik dengan biaya minim.
+        </p>
+
+        <!-- Tombol Share -->
+        <div class="mt-8 flex flex-wrap gap-3">
+          <button id="shareCopy" class="px-4 py-2 rounded-xl bg-slate-900 text-white font-semibold text-sm hover:bg-slate-800 transition flex items-center gap-2">
+            <i class="fa-solid fa-link"></i> Salin Link
+          </button>
+
+          <a id="shareWA" target="_blank"
+             class="px-4 py-2 rounded-xl bg-green-500 text-white font-semibold text-sm hover:bg-green-600 transition flex items-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+          </a>
+
+          <a id="shareFB" target="_blank"
+             class="px-4 py-2 rounded-xl bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 transition flex items-center gap-2">
+            <i class="fa-brands fa-facebook"></i> Facebook
+          </a>
+
+          <a id="shareX" target="_blank"
+             class="px-4 py-2 rounded-xl bg-black text-white font-semibold text-sm hover:bg-slate-900 transition flex items-center gap-2">
+            <i class="fa-brands fa-x-twitter"></i> X / Twitter
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container mx-auto px-6 py-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+      <!-- KONTEN -->
+      <article class="lg:col-span-8">
+
+        <!-- Gambar utama + deskripsi -->
+        <figure class="bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm">
+          <img id="heroImg"
+               src="https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=80"
+               alt="Dekorasi kamar kos minimalis"
+               class="w-full h-[240px] md:h-[420px] object-cover">
+          <figcaption id="heroCaption" class="px-6 py-4 text-sm text-slate-500">
+            Foto: Inspirasi kamar kos minimalis dengan tone cerah agar terasa luas.
+          </figcaption>
+        </figure>
+
+        <!-- TOC otomatis (baca H2/H3), bisa buka-tutup -->
+        <section class="mt-8 bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden">
+          <button id="tocToggle"
+                  class="w-full flex items-center justify-between px-6 py-5 font-extrabold text-slate-900">
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-list-ul text-blue-700"></i> Daftar Isi
+            </span>
+            <i id="tocIcon" class="fa-solid fa-chevron-down text-slate-400 transition"></i>
+          </button>
+          <div id="tocWrap" class="px-6 pb-6 hidden">
+            <div id="toc" class="space-y-2 text-sm"></div>
+          </div>
+        </section>
+
+        <!-- Isi Artikel -->
+        <section id="content" class="mt-8 space-y-8">
+
+          <div class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10 prose max-w-none">
+            <h2>Kenapa Gaya Minimalis Cocok untuk Anak Kos?</h2>
+            <p>
+              Kamar kos umumnya memiliki ukuran terbatas, jadi gaya minimalis membantu ruangan terlihat rapi, lega,
+              dan nyaman. Fokusnya bukan sekadar “sedikit barang”, tapi memilih barang yang fungsional dan tetap enak dilihat.
+            </p>
+
+            <blockquote class="border-l-4 border-blue-700 bg-blue-50 px-5 py-4 rounded-xl text-slate-700">
+              “Minimalis itu bukan soal mengurangi sampai kosong, tapi soal memilih yang benar-benar kamu butuhkan.”
+            </blockquote>
+
+            <h2>5 Cara Dekorasi Kamar Kos Jadi Minimalis</h2>
+
+            <h3>1) Tentukan Palet Warna Cerah</h3>
+            <p>
+              Pilih 2–3 warna utama (misalnya putih, krem, abu muda) agar ruangan terasa lebih luas.
+              Gunakan warna aksen (biru/olive) pada detail kecil seperti sarung bantal atau poster.
+            </p>
+
+            <figure class="mt-6">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80"
+                   alt="Palet warna cerah untuk kamar minimalis"
+                   class="w-full h-72 object-cover rounded-2xl border border-slate-100">
+              <figcaption class="text-sm text-slate-500 mt-3">
+                Warna terang + pencahayaan cukup bikin kamar lebih “lega” secara visual.
+              </figcaption>
+            </figure>
+
+            <h3>2) Terapkan Prinsip “Satu Masuk, Satu Keluar”</h3>
+            <p>
+              Setiap ada barang baru (misal baju/jaket), keluarkan satu barang lama untuk donasi/jual.
+              Cara ini menjaga kamar tetap lapang tanpa harus decluttering besar-besaran.
+            </p>
+
+            <h3>3) Manfaatkan Storage Vertikal</h3>
+            <p>
+              Gunakan rak dinding, gantungan pintu, atau organizer vertikal untuk menghemat ruang lantai.
+              Pastikan tetap aman dan tidak merusak dinding (gunakan hook/adhesive yang sesuai aturan kos).
+            </p>
+
+            <h3>4) Dekor Simpel tapi “Berkarakter”</h3>
+            <p>
+              Minimalis bukan berarti hambar. Pilih 1–2 elemen statement seperti
+              cermin bundar, lampu meja estetik, atau satu frame poster besar.
+            </p>
+
+            <h3>5) Rapikan Kabel dan Barang Kecil</h3>
+            <p>
+              Kabel berantakan bikin kamar terlihat “penuh”. Pakai cable organizer dan kotak kecil untuk barang receh
+              (charger, skincare, alat tulis).
+            </p>
+
+            <h2>Checklist Cepat Kamar Kos Minimalis</h2>
+            <ul class="list-disc pl-6">
+              <li>Warna dasar cerah + aksen 1 warna</li>
+              <li>Storage vertikal (rak/organizer)</li>
+              <li>Barang fungsional, kurangi pajangan kecil berlebihan</li>
+              <li>Kabel rapi, meja bersih</li>
+            </ul>
+
+          </div>
+
+          <!-- Gambar promosi GIF -->
+          <section class="bg-white border border-slate-100 rounded-3xl shadow-sm overflow-hidden">
+            <div class="p-6 md:p-8 flex flex-col md:flex-row items-center gap-6">
+              <img
+                src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif"
+                alt="Promo Kost Star"
+                class="w-full md:w-64 h-40 object-cover rounded-2xl border border-slate-100"
+              />
+              <div class="flex-1">
+                <h3 class="text-xl font-extrabold text-slate-900">Lagi cari kos yang rapi & nyaman?</h3>
+                <p class="text-slate-500 mt-2 leading-relaxed">
+                  Pakai Kost Star untuk filter kos sesuai budget, fasilitas, dan lokasi. Biar kamu fokus nyaman tinggal, bukan ribet cari.
+                </p>
+                <div class="mt-4 flex gap-3">
+                  <a href="carikost.html" class="bg-blue-700 text-white px-5 py-3 rounded-xl font-bold text-sm hover:bg-blue-800 transition">
+                    Cari Kos Sekarang
+                  </a>
+                  <a href="panduan.html" class="bg-slate-100 text-slate-900 px-5 py-3 rounded-xl font-bold text-sm hover:bg-slate-200 transition">
+                    Lihat Panduan
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- FAQ + Kesimpulan -->
+          <section class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">FAQ</h2>
+
+            <div class="mt-6 space-y-3">
+              <details class="group bg-slate-50 border border-slate-100 rounded-2xl p-5">
+                <summary class="cursor-pointer font-bold text-slate-900 flex items-center justify-between">
+                  Bagaimana dekor minimalis kalau kamar kos kecil?
+                  <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
+                </summary>
+                <p class="text-slate-600 mt-3 leading-relaxed">
+                  Fokus pada palet warna cerah, storage vertikal, dan kurangi barang kecil yang menumpuk di meja/lemari.
+                </p>
+              </details>
+
+              <details class="group bg-slate-50 border border-slate-100 rounded-2xl p-5">
+                <summary class="cursor-pointer font-bold text-slate-900 flex items-center justify-between">
+                  Dekorasi apa yang paling “worth it” untuk kamar kos?
+                  <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
+                </summary>
+                <p class="text-slate-600 mt-3 leading-relaxed">
+                  Cermin untuk efek luas, lampu meja untuk ambience, dan organizer kabel agar tampilan rapi.
+                </p>
+              </details>
+
+              <details class="group bg-slate-50 border border-slate-100 rounded-2xl p-5">
+                <summary class="cursor-pointer font-bold text-slate-900 flex items-center justify-between">
+                  Apakah minimalis itu harus mahal?
+                  <i class="fa-solid fa-chevron-down text-slate-400 group-open:rotate-180 transition"></i>
+                </summary>
+                <p class="text-slate-600 mt-3 leading-relaxed">
+                  Tidak. Minimalis lebih tentang pemilihan barang yang tepat dan rapi, bukan tentang brand mahal.
+                </p>
+              </details>
+            </div>
+
+            <hr class="my-8 border-slate-100">
+
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Kesimpulan</h2>
+            <p class="text-slate-600 mt-4 leading-relaxed">
+              Kamar kos minimalis bisa kamu wujudkan dengan cara sederhana: palet warna cerah, storage vertikal,
+              pilih dekor statement secukupnya, dan biasakan merapikan barang kecil. Hasilnya kamar terasa lebih luas,
+              rapi, dan bikin betah.
+            </p>
+          </section>
+
+          <!-- Baca Juga (minimal 2) -->
+          <section class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Baca Juga</h2>
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <a href="artikel.html?id=2" class="card-hover bg-slate-50 border border-slate-100 rounded-2xl p-6 block">
+                <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">Finansial</p>
+                <h3 class="text-lg font-extrabold text-slate-900 mt-2">Tips Mengatur Keuangan Mahasiswa Rantau</h3>
+                <p class="text-sm text-slate-500 mt-2">Cara mengelola uang bulanan agar tidak cepat habis.</p>
+              </a>
+
+              <a href="artikel.html?id=6" class="card-hover bg-slate-50 border border-slate-100 rounded-2xl p-6 block">
+                <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">Keamanan</p>
+                <h3 class="text-lg font-extrabold text-slate-900 mt-2">Menjaga Keamanan Kamar Kos Saat Mudik</h3>
+                <p class="text-sm text-slate-500 mt-2">Langkah penting agar kamar aman saat ditinggal lama.</p>
+              </a>
+            </div>
+          </section>
+
+          <!-- Profil Penulis -->
+          <section class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7 md:p-10">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900">Profil Penulis</h2>
+            <div class="mt-6 flex flex-col md:flex-row gap-6 items-start">
+              <img src="https://i.pravatar.cc/160?u=koststar-writer"
+                   alt="Foto penulis"
+                   class="w-20 h-20 rounded-2xl border border-slate-100 object-cover">
+              <div class="flex-1">
+                <p class="font-extrabold text-slate-900">Tim Editorial Kost Star</p>
+                <p class="text-slate-500 mt-1 leading-relaxed">
+                  Menulis seputar kehidupan anak kos: dekorasi, finansial, keamanan, dan tips nyaman tinggal di perantauan.
+                </p>
+                <div class="mt-4 flex gap-3">
+                  <a href="#" class="text-blue-700 font-bold text-sm hover:underline"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                  <a href="#" class="text-blue-700 font-bold text-sm hover:underline"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </section>
+      </article>
+
+      <!-- SIDEBAR (3 Artikel Terkait lengkap: gambar, judul, deskripsi, button) -->
+      <aside class="lg:col-span-4 space-y-6">
+        <div class="sticky top-[96px] space-y-6">
+
+          <section class="bg-white border border-slate-100 rounded-3xl shadow-sm p-7">
+            <h3 class="text-lg font-extrabold text-slate-900">Artikel Terkait</h3>
+
+            <div class="mt-6 space-y-5">
+
+              <!-- 1 -->
+              <div class="card-hover bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80"
+                     alt="Keuangan anak kos"
+                     class="w-full h-36 object-cover">
+                <div class="p-5">
+                  <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">Finansial</p>
+                  <h4 class="text-base font-extrabold text-slate-900 mt-2">Tips Mengatur Keuangan Mahasiswa Rantau</h4>
+                  <p class="text-sm text-slate-500 mt-2">Biar uang bulanan lebih awet dan terencana.</p>
+                  <a href="artikel.html?id=2" class="inline-flex mt-4 bg-blue-700 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-blue-800 transition">
+                    Baca Selengkapnya
+                  </a>
+                </div>
+              </div>
+
+              <!-- 2 -->
+              <div class="card-hover bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80"
+                     alt="Olahraga ringan"
+                     class="w-full h-36 object-cover">
+                <div class="p-5">
+                  <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">Kesehatan</p>
+                  <h4 class="text-base font-extrabold text-slate-900 mt-2">Manfaat Olahraga Ringan Sebelum Ngantor</h4>
+                  <p class="text-sm text-slate-500 mt-2">Gerakan simpel biar badan tetap bugar.</p>
+                  <a href="artikel.html?id=4" class="inline-flex mt-4 bg-blue-700 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-blue-800 transition">
+                    Baca Selengkapnya
+                  </a>
+                </div>
+              </div>
+
+              <!-- 3 -->
+              <div class="card-hover bg-slate-50 border border-slate-100 rounded-2xl overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
+                     alt="Kuliner malam tebet"
+                     class="w-full h-36 object-cover">
+                <div class="p-5">
+                  <p class="text-xs font-bold text-blue-700 uppercase tracking-widest">Kuliner</p>
+                  <h4 class="text-base font-extrabold text-slate-900 mt-2">Rekomendasi Kuliner Malam di Tebet</h4>
+                  <p class="text-sm text-slate-500 mt-2">Enak, murah, dan cocok buat anak kos.</p>
+                  <a href="artikel.html?id=3" class="inline-flex mt-4 bg-blue-700 text-white px-4 py-2 rounded-xl font-bold text-xs hover:bg-blue-800 transition">
+                    Baca Selengkapnya
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+          <!-- Promo kecil -->
+          <section class="bg-blue-700 rounded-3xl p-7 text-white shadow-sm">
+            <h3 class="text-lg font-extrabold">Butuh Kos Dekat Kampus/Kantor?</h3>
+            <p class="text-blue-100 mt-2 text-sm leading-relaxed">
+              Filter lokasi + harga + fasilitas dalam satu klik.
+            </p>
+            <a href="carikost.html" class="inline-flex mt-4 bg-white text-blue-700 px-5 py-3 rounded-xl font-extrabold text-sm hover:bg-blue-50 transition">
+              Mulai Cari Kos
+            </a>
+          </section>
+
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-white border-t pt-16 pb-10">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div>
+          <h4 class="font-bold text-lg mb-6 text-blue-700"><i class="fa-solid fa-star"></i> Kost Star</h4>
+          <p class="text-gray-500 text-sm">Platform cari kos nomor #1 di Indonesia yang memudahkan mahasiswa dan karyawan.</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-6">Tautan Cepat</h4>
+          <ul class="space-y-3 text-gray-500 text-sm">
+            <li><a href="index.html" class="hover:text-blue-600">Beranda</a></li>
+            <li><a href="carikost.html" class="hover:text-blue-600">Cari Kos</a></li>
+            <li><a href="panduan.html" class="hover:text-blue-600">Panduan</a></li>
+            <li><a href="blog.html" class="hover:text-blue-600">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-6">Ikuti Kami</h4>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-slate-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 bg-slate-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-6">Langganan Newsletter</h4>
+          <div class="flex gap-2">
+            <input type="email" placeholder="Email" class="bg-slate-100 border-none rounded-lg p-2 text-sm w-full outline-none focus:ring-1 focus:ring-blue-500">
+            <button class="bg-blue-600 text-white p-2 rounded-lg"><i class="fa-solid fa-paper-plane"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center text-slate-400 text-xs tracking-widest border-t pt-8 uppercase">
+        KOSTSTAR.ID © 2026 — SEMUA ARTIKEL HAK CIPTA DILINDUNGI
+      </div>
+    </div>
+  </footer>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop"
+    class="hidden fixed bottom-6 right-6 z-[1000] w-12 h-12 rounded-full bg-white border border-slate-200 shadow-xl
+          flex items-center justify-center text-blue-700 hover:bg-blue-700 hover:text-white transition-all duration-300">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Mobile nav
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    navToggle.addEventListener('click', () => navMenu.classList.toggle('hidden'));
+
+    // Back to top
+    (function () {
+      const btn = document.getElementById('backToTop');
+      const showAfter = 300;
+      function toggleBackToTop() {
+        if (window.scrollY > showAfter) btn.classList.remove('hidden');
+        else btn.classList.add('hidden');
+      }
+      window.addEventListener('scroll', toggleBackToTop, { passive: true });
+      toggleBackToTop();
+      btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    })();
+
+    // TOC builder (H2 & H3)
+    function slugify(text) {
+      return text.toLowerCase()
+        .replace(/[^\w\s-]/g, '')
+        .trim()
+        .replace(/\s+/g, '-');
+    }
+
+    function buildTOC() {
+      const content = document.getElementById('content');
+      const toc = document.getElementById('toc');
+
+      const headings = content.querySelectorAll('h2, h3');
+      toc.innerHTML = '';
+
+      headings.forEach(h => {
+        if (!h.id) h.id = slugify(h.innerText);
+
+        const level = h.tagName.toLowerCase(); // h2/h3
+        const item = document.createElement('div');
+        item.className = `toc-item ${level === 'h3' ? 'ml-4' : ''}`;
+
+        item.innerHTML = `
+          <a href="#${h.id}" class="text-slate-700 font-semibold ${level === 'h3' ? 'text-[13px]' : 'text-sm'}">
+            ${level === 'h3' ? '— ' : ''}${h.innerText}
+          </a>
+        `;
+        toc.appendChild(item);
+      });
+    }
+
+    // TOC toggle
+    const tocToggle = document.getElementById('tocToggle');
+    const tocWrap = document.getElementById('tocWrap');
+    const tocIcon = document.getElementById('tocIcon');
+
+    tocToggle.addEventListener('click', () => {
+      tocWrap.classList.toggle('hidden');
+      tocIcon.classList.toggle('rotate-180');
+    });
+
+    // Share links
+    function setupShare() {
+      const url = encodeURIComponent(window.location.href);
+      const title = encodeURIComponent(document.getElementById('articleTitle').innerText);
+
+      document.getElementById('shareWA').href = `https://wa.me/?text=${title}%0A${url}`;
+      document.getElementById('shareFB').href = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+      document.getElementById('shareX').href = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
+
+      document.getElementById('shareCopy').addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          const btn = document.getElementById('shareCopy');
+          const old = btn.innerHTML;
+          btn.innerHTML = `<i class="fa-solid fa-check"></i> Tersalin`;
+          setTimeout(() => btn.innerHTML = old, 1400);
+        } catch (e) {
+          alert('Gagal menyalin link. Silakan salin manual dari address bar.');
+        }
+      });
+    }
+
+    // (Opsional) Render artikel via query param ?id=1 dst
+    // Saat ini halaman sudah siap dipakai sebagai template. Kamu bisa kembangkan mapping artikel di sini.
+    function loadArticleFromQuery() {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+
+      // Mock data minimal (samakan id dengan halaman blog kamu)
+      const data = {
+        "1": {
+          title: "5 Cara Dekorasi Kamar Kos Jadi Minimalis",
+          category: "Dekorasi",
+          date: "05 Jan 2026",
+          lead: "Tips menyulap kamar sempit jadi terlihat luas dan estetik dengan biaya minim.",
+          heroImg: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1400&q=80",
+          heroCaption: "Foto: Inspirasi kamar kos minimalis dengan tone cerah agar terasa luas.",
+          readTime: 6
+        }
+      };
+
+      if (!id || !data[id]) return;
+
+      document.getElementById('articleTitle').innerText = data[id].title;
+      document.getElementById('articleCategory').innerHTML = `<i class="fa-solid fa-tag"></i> ${data[id].category}`;
+      document.getElementById('articleDate').innerText = data[id].date;
+      document.getElementById('articleLead').innerText = data[id].lead;
+      document.getElementById('heroImg').src = data[id].heroImg;
+      document.getElementById('heroCaption').innerText = data[id].heroCaption;
+      document.getElementById('readTime').innerText = data[id].readTime;
+      document.title = data[id].title + " - Kost Star";
+    }
+
+    // init
+    loadArticleFromQuery();
+    buildTOC();
+    setupShare();
+  </script>
+
+</body>
+</html>
