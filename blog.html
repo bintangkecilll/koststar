@@ -282,5 +282,34 @@
         }
     }
 </script>
+<!-- BUTTON KEMBALI KE ATAS (paste sebelum </body>) -->
+<button id="backToTop"
+  class="hidden fixed bottom-40 right-6 z-[1000] w-12 h-12 rounded-full bg-white border border-slate-200 shadow-xl
+         flex items-center justify-center text-blue-700 hover:bg-blue-700 hover:text-white transition-all duration-300">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+  (function () {
+    const btn = document.getElementById('backToTop');
+    const showAfter = 300; // muncul setelah scroll 300px
+
+    function toggleBackToTop() {
+      if (window.scrollY > showAfter) {
+        btn.classList.remove('hidden');
+      } else {
+        btn.classList.add('hidden');
+      }
+    }
+
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+    toggleBackToTop();
+
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
 </body>
 </html>
