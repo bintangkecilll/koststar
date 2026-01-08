@@ -1,263 +1,499 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog & Tips - Kost Star</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
-        .blog-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08); }
-        .blog-card { transition: all 0.4s ease; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Blog & Tips - Kost Star</title>
+  <meta name="description" content="Blog Kost Star: inspirasi & tips hunian, dekorasi kamar kos, hemat, keamanan, lifestyle, dan info terbaru." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="https://koststar.id/blog.html" />
+  <meta name="theme-color" content="#2563eb" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Blog & Tips - Kost Star" />
+  <meta property="og:description" content="Temukan berbagai informasi menarik: tips hemat, dekorasi kamar, keamanan, hingga lifestyle anak kos." />
+  <meta property="og:url" content="https://koststar.id/blog.html" />
+  <meta property="og:site_name" content="Kost Star" />
+  <meta property="og:image" content="https://koststar.id/img/og-blog.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Performance -->
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+    .blog-card { transition: transform .35s ease, box-shadow .35s ease; }
+    .blog-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08); }
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+
+  <!-- Structured Data (CollectionPage) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"CollectionPage",
+    "name":"Blog & Tips - Kost Star",
+    "url":"https://koststar.id/blog.html",
+    "isPartOf":{"@type":"WebSite","name":"Kost Star","url":"https://koststar.id"},
+    "inLanguage":"id-ID"
+  }
+  </script>
 </head>
+
 <body>
 
-    <nav class="bg-white sticky top-0 z-[100] shadow-sm border-b border-gray-100">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center gap-8">
-                <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center gap-2">
-                    <i class="fa-solid fa-star"></i> Kost Star
-                </a>
-                <div class="hidden md:flex gap-6 font-medium text-gray-600">
-                    <a href="carikost.html" class="hover:text-blue-700 transition">Cari Kos</a>
-                    <a href="panduan.html" class="hover:text-blue-700 transition">Panduan</a>
-                    <a href="blog.html" class="text-blue-700 font-bold">Blog</a>
-                </div>
-            </div>
-            <button id="nav-toggle" class="md:hidden text-gray-600 p-2">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
-            <div class="hidden md:block">
-                <a href="tel:02112345678" class="border-2 border-blue-700 text-blue-700 px-5 py-2 rounded-lg font-semibold flex items-center gap-2 hover:bg-blue-700 hover:text-white transition">
-                    <i class="fa-solid fa-phone"></i> 021-1234-5678
-                </a>
-            </div>
-        </div>
-        <div id="nav-menu" class="hidden md:hidden bg-white border-t p-6 space-y-4 shadow-lg absolute w-full">
-            <a href="carikost.html" class="block font-semibold text-gray-700">Cari Kos</a>
-            <a href="panduan.html" class="block font-semibold text-gray-700">Panduan</a>
-            <a href="blog.html" class="block font-semibold text-blue-700">Blog</a>
-        </div>
-    </nav>
+  <!-- NAV -->
+  <nav class="bg-white sticky top-0 z-[100] shadow-sm border-b border-gray-100">
+    <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-8">
+        <a href="index.html" class="text-2xl font-bold text-blue-700 flex items-center gap-2">
+          <i class="fa-solid fa-star"></i> Kost Star
+        </a>
 
-    <header class="py-16 bg-white border-b">
-        <div class="container mx-auto px-6 text-center">
-            <span class="text-blue-600 font-bold uppercase tracking-widest text-xs">Artikel Terkini</span>
-            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mt-4 mb-6">Inspirasi & Tips Hunian</h1>
-            <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">Temukan berbagai informasi menarik mulai dari tips hemat, dekorasi kamar, hingga rekomendasi kuliner di sekitar kos Anda.</p>
+        <div class="hidden md:flex gap-6 font-medium text-gray-600">
+          <a href="carikost.html" class="hover:text-blue-700 transition">Cari Kos</a>
+          <a href="panduan.html" class="hover:text-blue-700 transition">Panduan</a>
+          <a href="blog.html" class="text-blue-700 font-extrabold">Blog</a>
         </div>
-    </header>
+      </div>
 
-    <div class="sticky top-[72px] z-40 bg-white/80 backdrop-blur-md py-6 border-b">
-        <div class="container mx-auto px-6">
-            <div class="relative max-w-2xl mx-auto">
-                <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-slate-400"></i>
-                <input type="text" id="blogSearch" placeholder="Cari judul artikel (misal: dekorasi, hemat...)" 
-                    class="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-100 border-none focus:ring-2 focus:ring-blue-600 outline-none font-medium transition-all">
-            </div>
-        </div>
+      <div class="flex items-center gap-3">
+        <a href="tel:02112345678" class="hidden md:flex border-2 border-blue-700 text-blue-700 px-5 py-2 rounded-lg font-semibold items-center gap-2 hover:bg-blue-700 hover:text-white transition">
+          <i class="fa-solid fa-phone"></i> 021-1234-5678
+        </a>
+
+        <button id="nav-toggle" class="md:hidden text-gray-600 p-2"
+                aria-label="Buka menu navigasi" aria-controls="nav-menu" aria-expanded="false">
+          <i id="nav-icon" class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
     </div>
 
-    <main class="container mx-auto px-6 py-16">
-        <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+    <div id="nav-menu" class="hidden md:hidden bg-white border-t p-6 space-y-4 shadow-lg w-full">
+      <a href="carikost.html" class="block font-semibold text-gray-700">Cari Kos</a>
+      <a href="panduan.html" class="block font-semibold text-gray-700">Panduan</a>
+      <a href="blog.html" class="block font-semibold text-blue-700">Blog</a>
+      <a href="tel:02112345678" class="block font-extrabold text-blue-700">021-1234-5678</a>
+    </div>
+  </nav>
 
-        <div id="noResults" class="hidden text-center py-20">
-            <div class="bg-slate-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i class="fa-solid fa-book-open text-slate-400 text-3xl"></i>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900">Artikel tidak ditemukan</h3>
-            <p class="text-slate-500 mt-2">Coba kata kunci lain yang lebih umum.</p>
+  <!-- HEADER -->
+  <header class="py-16 bg-white border-b">
+    <div class="container mx-auto px-4 md:px-6 text-center">
+      <span class="text-blue-600 font-extrabold uppercase tracking-widest text-xs">Artikel Terkini</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mt-4 mb-6">Inspirasi & Tips Hunian</h1>
+      <p class="text-slate-500 max-w-2xl mx-auto text-lg leading-relaxed">
+        Temukan berbagai informasi menarik mulai dari tips hemat, dekorasi kamar, hingga rekomendasi kuliner di sekitar kos Anda.
+      </p>
+    </div>
+  </header>
+
+  <!-- SEARCH BAR -->
+  <div class="sticky top-[72px] z-40 bg-white/80 backdrop-blur-md py-6 border-b">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="relative max-w-2xl mx-auto">
+        <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-slate-400" aria-hidden="true"></i>
+        <label class="sr-only" for="blogSearch">Cari judul artikel</label>
+        <input type="text" id="blogSearch" placeholder="Cari judul artikel (misal: dekorasi, hemat...)"
+          class="w-full pl-14 pr-6 py-4 rounded-2xl bg-slate-100 border-none focus:ring-2 focus:ring-blue-600 outline-none font-semibold transition-all" />
+        <button id="clearSearch" type="button"
+          class="hidden absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-700"
+          aria-label="Hapus pencarian">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- quick filters -->
+      <div class="max-w-2xl mx-auto mt-4 flex flex-wrap gap-2 justify-center">
+        <button data-chip="Dekorasi" class="chip px-4 py-2 rounded-full bg-white border border-slate-200 text-sm font-bold text-slate-700 hover:border-blue-300 hover:text-blue-700 transition">Dekorasi</button>
+        <button data-chip="Finansial" class="chip px-4 py-2 rounded-full bg-white border border-slate-200 text-sm font-bold text-slate-700 hover:border-blue-300 hover:text-blue-700 transition">Finansial</button>
+        <button data-chip="Kuliner" class="chip px-4 py-2 rounded-full bg-white border border-slate-200 text-sm font-bold text-slate-700 hover:border-blue-300 hover:text-blue-700 transition">Kuliner</button>
+        <button data-chip="Keamanan" class="chip px-4 py-2 rounded-full bg-white border border-slate-200 text-sm font-bold text-slate-700 hover:border-blue-300 hover:text-blue-700 transition">Keamanan</button>
+        <button data-chip="" class="chip px-4 py-2 rounded-full bg-blue-700 text-white text-sm font-extrabold hover:bg-blue-800 transition">Semua</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="container mx-auto px-4 md:px-6 py-16">
+    <!-- result meta -->
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
+      <div class="text-sm font-bold text-slate-500">
+        Menampilkan <span id="shownCount" class="text-slate-900">0</span> dari <span id="totalCount" class="text-slate-900">0</span> artikel
+      </div>
+
+      <div class="flex items-center gap-2">
+        <label class="sr-only" for="sortSelect">Urutkan artikel</label>
+        <select id="sortSelect"
+          class="bg-white border border-slate-200 rounded-2xl px-4 py-3 text-sm font-bold text-slate-700 shadow-sm focus:ring-2 focus:ring-blue-600 outline-none">
+          <option value="newest">Terbaru</option>
+          <option value="oldest">Terlama</option>
+          <option value="az">Judul (A-Z)</option>
+          <option value="za">Judul (Z-A)</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="blogGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"></div>
+
+    <div id="noResults" class="hidden text-center py-20">
+      <div class="bg-slate-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+        <i class="fa-solid fa-book-open text-slate-400 text-3xl"></i>
+      </div>
+      <h3 class="text-xl font-extrabold text-slate-900">Artikel tidak ditemukan</h3>
+      <p class="text-slate-500 mt-2">Coba kata kunci lain yang lebih umum.</p>
+    </div>
+
+    <!-- Pagination -->
+    <div id="pager" class="mt-14 hidden">
+      <div class="max-w-2xl mx-auto flex items-center justify-between gap-4">
+        <button id="prevBtn"
+          class="w-1/2 md:w-auto px-5 py-3 rounded-2xl bg-white border border-slate-200 shadow-sm font-extrabold text-slate-800 hover:bg-slate-50 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+          <i class="fa-solid fa-arrow-left"></i> Prev
+        </button>
+
+        <div class="text-sm font-extrabold text-slate-500">
+          Halaman <span id="pageNow" class="text-slate-900">1</span> dari <span id="pageTotal" class="text-slate-900">1</span>
         </div>
 
-        <!-- Pagination -->
-        <div id="pager" class="mt-14 hidden">
-            <div class="max-w-2xl mx-auto flex items-center justify-between gap-4">
-                <button id="prevBtn"
-                        class="w-1/2 md:w-auto px-5 py-3 rounded-2xl bg-white border border-slate-200 shadow-sm font-bold text-slate-800 hover:bg-slate-50 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
-                    <i class="fa-solid fa-arrow-left"></i> Prev
-                </button>
+        <button id="nextBtn"
+          class="w-1/2 md:w-auto px-5 py-3 rounded-2xl bg-blue-700 text-white shadow-sm font-extrabold hover:bg-blue-800 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
+          Next <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </main>
 
-                <div class="text-sm font-bold text-slate-500">
-                    Halaman <span id="pageNow" class="text-slate-900">1</span> dari <span id="pageTotal" class="text-slate-900">1</span>
-                </div>
-
-                <button id="nextBtn"
-                        class="w-1/2 md:w-auto px-5 py-3 rounded-2xl bg-blue-700 text-white shadow-sm font-bold hover:bg-blue-800 transition flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed">
-                    Next <i class="fa-solid fa-arrow-right"></i>
-                </button>
-            </div>
+  <!-- FOOTER -->
+  <footer class="bg-white border-t pt-20 pb-10">
+    <div class="container mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+        <div>
+          <h4 class="font-extrabold text-lg mb-6 text-blue-700 flex items-center gap-2">
+            <i class="fa-solid fa-star"></i> Kost Star
+          </h4>
+          <p class="text-gray-500 text-sm">Platform cari kos nomor #1 di Indonesia yang memudahkan mahasiswa dan karyawan.</p>
         </div>
-    </main>
 
-    <footer class="bg-white border-t pt-20 pb-10">
-        <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div>
-                    <h4 class="font-bold text-lg mb-6 text-blue-700"><i class="fa-solid fa-star"></i> Kost Star</h4>
-                    <p class="text-gray-500 text-sm">Platform cari kos nomor #1 di Indonesia yang memudahkan mahasiswa dan karyawan.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-6">Tautan Cepat</h4>
-                    <ul class="space-y-3 text-gray-500 text-sm">
-                        <li><a href="index.html" class="hover:text-blue-600">Beranda</a></li>
-                        <li><a href="carikost.html" class="hover:text-blue-600">Cari Kos</a></li>
-                        <li><a href="panduan.html" class="hover:text-blue-600">Panduan</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-6">Ikuti Kami</h4>
-                    <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-slate-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 bg-slate-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition"><i class="fa-brands fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold text-lg mb-6">Langganan Newsletter</h4>
-                    <div class="flex gap-2">
-                        <input type="email" placeholder="Email" class="bg-slate-100 border-none rounded-lg p-2 text-sm w-full outline-none focus:ring-1 focus:ring-blue-500">
-                        <button class="bg-blue-600 text-white p-2 rounded-lg"><i class="fa-solid fa-paper-plane"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center text-slate-400 text-xs tracking-widest border-t pt-8 uppercase">
-                KOSTSTAR.ID © 2026 — SEMUA ARTIKEL HAK CIPTA DILINDUNGI
-            </div>
+        <div>
+          <h4 class="font-extrabold text-lg mb-6">Tautan Cepat</h4>
+          <ul class="space-y-3 text-gray-500 text-sm">
+            <li><a href="index.html" class="hover:text-blue-600 transition">Beranda</a></li>
+            <li><a href="carikost.html" class="hover:text-blue-600 transition">Cari Kos</a></li>
+            <li><a href="panduan.html" class="hover:text-blue-600 transition">Panduan</a></li>
+          </ul>
         </div>
-    </footer>
 
-    <script>
-        // Data Artikel (Mockup Database) - 9 artikel
-        const articles = [
-            { id: 1, title: "5 Cara Dekorasi Kamar Kos Jadi Minimalis", category: "Dekorasi", img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=500&q=80", desc: "Tips menyulap kamar sempit jadi terlihat luas dan estetik dengan biaya minim.", date: "05 Jan 2026" },
-            { id: 2, title: "Tips Mengatur Keuangan Mahasiswa Rantau", category: "Finansial", img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=500&q=80", desc: "Cara mengelola uang bulanan agar tidak habis sebelum waktunya bagi anak kost.", date: "02 Jan 2026" },
-            { id: 3, title: "Rekomendasi Kuliner Malam di Tebet", category: "Kuliner", img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=500&q=80", desc: "Daftar tempat makan enak dan murah yang wajib dicoba anak kost area Tebet.", date: "30 Des 2025" },
-            { id: 4, title: "Manfaat Olahraga Ringan Sebelum Ngantor", category: "Kesehatan", img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=500&q=80", desc: "Tetap bugar meskipun jadwal padat dengan gerakan olahraga simpel di dalam kamar.", date: "28 Des 2025" },
-            { id: 5, title: "Cari Kos Tanpa Ribet Lewat Kost Star", category: "Update", img: "img/kost1.avif", desc: "Panduan lengkap menggunakan fitur terbaru Kost Star untuk booking kamar.", date: "25 Des 2025" },
-            { id: 6, title: "Menjaga Keamanan Kamar Kos Saat Mudik", category: "Keamanan", img: "img/kost2.avif", desc: "Langkah-langkah penting untuk memastikan kamar tetap aman saat ditinggal lama.", date: "20 Des 2025" },
-            { id: 7, title: "Checklist Pindahan Anak Kos Anti Ribet", category: "Tips", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=500&q=80", desc: "Biar pindahan rapi, cepat, dan nggak ada yang ketinggalan.", date: "18 Des 2025" },
-            { id: 8, title: "Cara Bikin Kamar Kos Wangi dan Nggak Pengap", category: "Kenyamanan", img: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=500&q=80", desc: "Trik sederhana bikin kamar lebih segar setiap hari.", date: "12 Des 2025" },
-            { id: 9, title: "Rutinitas Malam Anak Kos Biar Tidur Lebih Nyenyak", category: "Lifestyle", img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=500&q=80", desc: "Bikin kualitas tidur naik dengan kebiasaan kecil sebelum tidur.", date: "08 Des 2025" }
-        ];
+        <div>
+          <h4 class="font-extrabold text-lg mb-6">Ikuti Kami</h4>
+          <div class="flex gap-4">
+            <a href="#" class="w-10 h-10 bg-slate-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" aria-label="Instagram Kost Star">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="#" class="w-10 h-10 bg-slate-100 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition" aria-label="Tiktok Kost Star">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+          </div>
+        </div>
 
-        const blogGrid = document.getElementById('blogGrid');
-        const blogSearch = document.getElementById('blogSearch');
-        const noResults = document.getElementById('noResults');
-        const navToggle = document.getElementById('nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
+        <div>
+          <h4 class="font-extrabold text-lg mb-6">Langganan Newsletter</h4>
+          <form class="flex gap-2" onsubmit="event.preventDefault(); alert('Terima kasih! (demo)');">
+            <label class="sr-only" for="newsletterEmail">Email</label>
+            <input id="newsletterEmail" type="email" required placeholder="Email"
+              class="bg-slate-100 border-none rounded-lg p-3 text-sm w-full outline-none focus:ring-2 focus:ring-blue-500" />
+            <button class="bg-blue-600 text-white px-4 rounded-lg hover:bg-blue-700 transition" aria-label="Kirim newsletter">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
 
-        // pager
-        const pager = document.getElementById('pager');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const pageNowEl = document.getElementById('pageNow');
-        const pageTotalEl = document.getElementById('pageTotal');
+      <div class="text-center text-slate-400 text-xs tracking-widest border-t pt-8 uppercase">
+        KOSTSTAR.ID © 2026 — SEMUA ARTIKEL HAK CIPTA DILINDUNGI
+      </div>
+    </div>
+  </footer>
 
-        const PER_PAGE = 6; // bisa kamu ubah (misal 9, 12, dst)
-        let currentPage = 1;
-        let currentKeyword = "";
+  <script>
+    // ====== Data Artikel (Mockup) ======
+    const articles = [
+      { id: 1, title: "5 Cara Dekorasi Kamar Kos Jadi Minimalis", category: "Dekorasi", img: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1200&q=80", desc: "Tips menyulap kamar sempit jadi terlihat luas dan estetik dengan biaya minim.", date: "05 Jan 2026" },
+      { id: 2, title: "Tips Mengatur Keuangan Mahasiswa Rantau", category: "Finansial", img: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80", desc: "Cara mengelola uang bulanan agar tidak habis sebelum waktunya bagi anak kost.", date: "02 Jan 2026" },
+      { id: 3, title: "Rekomendasi Kuliner Malam di Tebet", category: "Kuliner", img: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80", desc: "Daftar tempat makan enak dan murah yang wajib dicoba anak kost area Tebet.", date: "30 Des 2025" },
+      { id: 4, title: "Manfaat Olahraga Ringan Sebelum Ngantor", category: "Kesehatan", img: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80", desc: "Tetap bugar meskipun jadwal padat dengan gerakan olahraga simpel di dalam kamar.", date: "28 Des 2025" },
+      { id: 5, title: "Cari Kos Tanpa Ribet Lewat Kost Star", category: "Update", img: "img/kost1.avif", desc: "Panduan lengkap menggunakan fitur terbaru Kost Star untuk booking kamar.", date: "25 Des 2025" },
+      { id: 6, title: "Menjaga Keamanan Kamar Kos Saat Mudik", category: "Keamanan", img: "img/kost2.avif", desc: "Langkah-langkah penting untuk memastikan kamar tetap aman saat ditinggal lama.", date: "20 Des 2025" },
+      { id: 7, title: "Checklist Pindahan Anak Kos Anti Ribet", category: "Tips", img: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80", desc: "Biar pindahan rapi, cepat, dan nggak ada yang ketinggalan.", date: "18 Des 2025" },
+      { id: 8, title: "Cara Bikin Kamar Kos Wangi dan Nggak Pengap", category: "Kenyamanan", img: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80", desc: "Trik sederhana bikin kamar lebih segar setiap hari.", date: "12 Des 2025" },
+      { id: 9, title: "Rutinitas Malam Anak Kos Biar Tidur Lebih Nyenyak", category: "Lifestyle", img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=1200&q=80", desc: "Bikin kualitas tidur naik dengan kebiasaan kecil sebelum tidur.", date: "08 Des 2025" }
+    ];
 
-        function getFiltered() {
-            const keyword = currentKeyword.toLowerCase();
-            return articles.filter(a =>
-                a.title.toLowerCase().includes(keyword) ||
-                a.category.toLowerCase().includes(keyword)
-            );
-        }
+    // ====== DOM ======
+    const blogGrid = document.getElementById('blogGrid');
+    const blogSearch = document.getElementById('blogSearch');
+    const clearSearch = document.getElementById('clearSearch');
+    const noResults = document.getElementById('noResults');
 
-        function renderPagination(totalItems) {
-            const totalPages = Math.max(1, Math.ceil(totalItems / PER_PAGE));
-            pageNowEl.textContent = String(currentPage);
-            pageTotalEl.textContent = String(totalPages);
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const navIcon = document.getElementById('nav-icon');
 
-            prevBtn.disabled = currentPage <= 1;
-            nextBtn.disabled = currentPage >= totalPages;
+    // pager
+    const pager = document.getElementById('pager');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const pageNowEl = document.getElementById('pageNow');
+    const pageTotalEl = document.getElementById('pageTotal');
 
-            // tampilkan pager hanya kalau item lebih dari per_page
-            if (totalItems > PER_PAGE) pager.classList.remove('hidden');
-            else pager.classList.add('hidden');
-        }
+    const shownCount = document.getElementById('shownCount');
+    const totalCount = document.getElementById('totalCount');
 
-        // Fungsi Render Artikel (dengan link ke artikel.html?id=...)
-        function displayArticles(list) {
-            blogGrid.innerHTML = "";
+    const sortSelect = document.getElementById('sortSelect');
+    const chips = Array.from(document.querySelectorAll('.chip'));
 
-            if (list.length === 0) {
-                noResults.classList.remove('hidden');
-                pager.classList.add('hidden');
-                return;
-            } else {
-                noResults.classList.add('hidden');
-            }
+    // ====== State ======
+    const PER_PAGE = 6; // ubah sesuai kebutuhan
+    let currentPage = 1;
+    let currentKeyword = "";
+    let currentChip = ""; // category filter
 
-            const start = (currentPage - 1) * PER_PAGE;
-            const end = start + PER_PAGE;
-            const pageItems = list.slice(start, end);
+    // ====== Helpers ======
+    function parseIndoDate(str) {
+      // format: "05 Jan 2026"
+      const parts = str.trim().split(/\s+/);
+      if (parts.length !== 3) return new Date(0);
 
-            pageItems.forEach(article => {
-                const href = `artikel.html?id=${article.id}`;
-                const card = `
-                    <a href="${href}" class="block">
-                      <article class="blog-card bg-white rounded-[2rem] border border-slate-100 overflow-hidden shadow-sm flex flex-col cursor-pointer">
-                          <div class="relative overflow-hidden group">
-                              <img src="${article.img}" alt="${article.title}" class="w-full h-56 object-cover group-hover:scale-110 transition duration-700">
-                              <span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-blue-700 uppercase">${article.category}</span>
-                          </div>
-                          <div class="p-8 flex flex-col flex-grow">
-                              <span class="text-xs text-slate-400 font-semibold mb-2">${article.date}</span>
-                              <h3 class="text-xl font-bold text-slate-900 leading-tight mb-4 hover:text-blue-600 transition">${article.title}</h3>
-                              <p class="text-slate-500 text-sm leading-relaxed mb-6">${article.desc}</p>
-                              <div class="mt-auto">
-                                  <span class="text-blue-700 font-bold text-sm flex items-center gap-2 group">
-                                    Baca Selengkapnya <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
-                                  </span>
-                              </div>
-                          </div>
-                      </article>
-                    </a>
-                `;
-                blogGrid.innerHTML += card;
-            });
+      const [dd, mon, yyyy] = parts;
+      const monthMap = {
+        Jan: 0, Feb: 1, Mar: 2, Apr: 3, Mei: 4, Jun: 5,
+        Jul: 6, Agu: 7, Sep: 8, Okt: 9, Nov: 10, Des: 11
+      };
+      const m = monthMap[mon] ?? 0;
+      return new Date(Number(yyyy), m, Number(dd));
+    }
 
-            renderPagination(list.length);
-        }
+    function getFiltered() {
+      const keyword = currentKeyword.toLowerCase().trim();
+      return articles.filter(a => {
+        const matchKeyword =
+          !keyword ||
+          a.title.toLowerCase().includes(keyword) ||
+          a.category.toLowerCase().includes(keyword);
 
-        // Event Listener Live Search
-        blogSearch.addEventListener('input', (e) => {
-            currentKeyword = e.target.value;
-            currentPage = 1;
-            displayArticles(getFiltered());
+        const matchChip =
+          !currentChip || a.category.toLowerCase() === currentChip.toLowerCase();
+
+        return matchKeyword && matchChip;
+      });
+    }
+
+    function sortList(list) {
+      const mode = sortSelect.value;
+      const copy = [...list];
+
+      if (mode === "newest") {
+        copy.sort((a,b) => parseIndoDate(b.date) - parseIndoDate(a.date));
+      } else if (mode === "oldest") {
+        copy.sort((a,b) => parseIndoDate(a.date) - parseIndoDate(b.date));
+      } else if (mode === "az") {
+        copy.sort((a,b) => a.title.localeCompare(b.title, "id"));
+      } else if (mode === "za") {
+        copy.sort((a,b) => b.title.localeCompare(a.title, "id"));
+      }
+      return copy;
+    }
+
+    function renderPagination(totalItems) {
+      const totalPages = Math.max(1, Math.ceil(totalItems / PER_PAGE));
+      if (currentPage > totalPages) currentPage = totalPages;
+
+      pageNowEl.textContent = String(currentPage);
+      pageTotalEl.textContent = String(totalPages);
+
+      prevBtn.disabled = currentPage <= 1;
+      nextBtn.disabled = currentPage >= totalPages;
+
+      if (totalItems > PER_PAGE) pager.classList.remove('hidden');
+      else pager.classList.add('hidden');
+    }
+
+    function updateCounts(total, shown) {
+      totalCount.textContent = String(total);
+      shownCount.textContent = String(shown);
+    }
+
+    function safeImg(img) {
+      // kalau pakai img lokal, biarkan; kalau remote, tambah params sudah ada.
+      return img;
+    }
+
+    function displayArticles(list) {
+      blogGrid.innerHTML = "";
+
+      if (list.length === 0) {
+        noResults.classList.remove('hidden');
+        pager.classList.add('hidden');
+        updateCounts(0, 0);
+        return;
+      } else {
+        noResults.classList.add('hidden');
+      }
+
+      const totalItems = list.length;
+      const start = (currentPage - 1) * PER_PAGE;
+      const end = start + PER_PAGE;
+      const pageItems = list.slice(start, end);
+
+      pageItems.forEach(article => {
+        const href = `artikel.html?id=${article.id}`;
+        const card = `
+          <a href="${href}" class="block group">
+            <article class="blog-card bg-white rounded-[2rem] border border-slate-100 overflow-hidden shadow-sm flex flex-col cursor-pointer h-full">
+              <div class="relative overflow-hidden">
+                <img src="${safeImg(article.img)}"
+                     alt="${article.title}"
+                     loading="lazy" decoding="async"
+                     class="w-full h-56 object-cover group-hover:scale-110 transition duration-700">
+                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-extrabold text-blue-700 uppercase">
+                  ${article.category}
+                </span>
+              </div>
+
+              <div class="p-8 flex flex-col flex-grow">
+                <span class="text-xs text-slate-400 font-bold mb-2">${article.date}</span>
+                <h2 class="text-xl font-extrabold text-slate-900 leading-tight mb-4 group-hover:text-blue-600 transition">
+                  ${article.title}
+                </h2>
+                <p class="text-slate-500 text-sm leading-relaxed mb-6">${article.desc}</p>
+
+                <div class="mt-auto">
+                  <span class="text-blue-700 font-extrabold text-sm inline-flex items-center gap-2">
+                    Baca Selengkapnya
+                    <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                  </span>
+                </div>
+              </div>
+            </article>
+          </a>
+        `;
+        blogGrid.insertAdjacentHTML("beforeend", card);
+      });
+
+      renderPagination(totalItems);
+      updateCounts(totalItems, pageItems.length);
+    }
+
+    function rerender() {
+      const filtered = sortList(getFiltered());
+      displayArticles(filtered);
+    }
+
+    // ====== Events ======
+
+    // Search
+    blogSearch.addEventListener('input', (e) => {
+      currentKeyword = e.target.value;
+      currentPage = 1;
+      clearSearch.classList.toggle('hidden', !currentKeyword.trim());
+      rerender();
+    });
+
+    clearSearch.addEventListener('click', () => {
+      blogSearch.value = "";
+      currentKeyword = "";
+      currentPage = 1;
+      clearSearch.classList.add('hidden');
+      rerender();
+      blogSearch.focus();
+    });
+
+    // Sort
+    sortSelect.addEventListener('change', () => {
+      currentPage = 1;
+      rerender();
+    });
+
+    // Chips (category quick filter)
+    chips.forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentChip = btn.getAttribute('data-chip') || "";
+        currentPage = 1;
+
+        // simple active style
+        chips.forEach(b => {
+          b.classList.remove('bg-blue-700','text-white','border-blue-700');
+          if (b.getAttribute('data-chip') === "") {
+            // keep default look, will be activated only when currentChip empty
+          }
         });
+        // activate clicked
+        btn.classList.add('bg-blue-700','text-white','border-blue-700');
 
-        // Toggle Navbar Mobile
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('hidden');
-        });
+        rerender();
+      });
+    });
 
-        // Prev/Next
-        prevBtn.addEventListener('click', () => {
-            if (currentPage > 1) {
-                currentPage--;
-                displayArticles(getFiltered());
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        });
+    // Mobile nav (aria + icon + ESC)
+    function closeNav(){
+      navMenu.classList.add('hidden');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navIcon.classList.remove('fa-xmark');
+      navIcon.classList.add('fa-bars');
+    }
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('hidden');
+      const isOpen = !navMenu.classList.contains('hidden');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      if (isOpen) {
+        navIcon.classList.remove('fa-bars');
+        navIcon.classList.add('fa-xmark');
+      } else {
+        navIcon.classList.remove('fa-xmark');
+        navIcon.classList.add('fa-bars');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeNav();
+    });
 
-        nextBtn.addEventListener('click', () => {
-            const total = getFiltered().length;
-            const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
-            if (currentPage < totalPages) {
-                currentPage++;
-                displayArticles(getFiltered());
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
-        });
+    // Prev/Next
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+        currentPage--;
+        rerender();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
 
-        // Jalankan Pertama Kali
-        displayArticles(getFiltered());
-    </script>
+    nextBtn.addEventListener('click', () => {
+      const total = getFiltered().length;
+      const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
+      if (currentPage < totalPages) {
+        currentPage++;
+        rerender();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
+
+    // ====== Init ======
+    // set "Semua" chip active by default
+    const defaultChip = chips.find(b => (b.getAttribute('data-chip') || "") === "");
+    if (defaultChip) defaultChip.classList.add('bg-blue-700','text-white','border-blue-700');
+
+    rerender();
+  </script>
 
 </body>
 </html>
