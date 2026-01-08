@@ -3,10 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO: Title tetap -->
     <title>Kost Star - Cari Kos #SegampangItu</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <!-- SEO: Meta Description + Robots + Canonical -->
+    <meta name="description" content="Kost Star membantu Anda cari kos putra/putri/eksklusif dengan fasilitas lengkap di lokasi strategis. Proses sewa aman, cepat, dan transparan.">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <link rel="canonical" href="https://koststar.id/">
+
+    <!-- SEO: Open Graph + Twitter Card (Ai Overview friendly) -->
+    <meta property="og:locale" content="id_ID">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kost Star - Cari Kos #SegampangItu">
+    <meta property="og:description" content="Temukan kos nyaman & strategis dengan harga transparan. Filter tipe kos, lokasi, dan fasilitas dengan mudah di Kost Star.">
+    <meta property="og:url" content="https://koststar.id/">
+    <meta property="og:site_name" content="Kost Star">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta property="og:image:alt" content="Kamar kos nyaman di Kost Star">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Kost Star - Cari Kos #SegampangItu">
+    <meta name="twitter:description" content="Cari kos putra/putri/eksklusif di lokasi strategis. Sewa aman, cepat, dan transparan.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <!-- SEO: Theme Color -->
+    <meta name="theme-color" content="#1d4ed8">
+
+    <!-- FAVICON (maksimal) -->
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Performance: Preconnect -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <link rel="preconnect" href="https://i.pravatar.cc" crossorigin>
+
+    <!-- Performance: Fonts - display=swap sudah ada -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- Tailwind (tetap, karena struktur kamu memakai tailwind) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; overflow-x: hidden; }
         
@@ -199,6 +244,41 @@
             .new-hero-star { min-height: auto; padding-top: 2rem; }
         }
     </style>
+
+    <!-- Structured Data (SEO + AI Overview) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Kost Star",
+      "url": "https://koststar.id/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://koststar.id/carikost.html?type={type}&location={location}",
+        "query-input": [
+          "required name=type",
+          "required name=location"
+        ]
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Kost Star",
+      "url": "https://koststar.id/",
+      "logo": "https://koststar.id/apple-touch-icon.png",
+      "contactPoint": [{
+        "@type": "ContactPoint",
+        "telephone": "+62-21-1234-5678",
+        "contactType": "customer service",
+        "areaServed": "ID",
+        "availableLanguage": ["id"]
+      }]
+    }
+    </script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -215,7 +295,7 @@
                 </div>
             </div>
             
-            <button id="nav-toggle" class="md:hidden text-gray-600 focus:outline-none p-2">
+            <button id="nav-toggle" class="md:hidden text-gray-600 focus:outline-none p-2" aria-label="Buka menu navigasi" aria-controls="nav-menu" aria-expanded="false">
                 <i class="fa-solid fa-bars text-2xl"></i>
             </button>
 
@@ -229,7 +309,8 @@
         <div id="nav-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-6 space-y-4 shadow-lg absolute w-full left-0">
             <a href="carikost.html" class="block font-semibold text-gray-700 hover:text-blue-700">Cari Kos</a>
             <a href="panduan.html" class="block font-semibold text-gray-700 hover:text-blue-700">Panduan</a>
-            <a href="blog.hhtml" class="block font-semibold text-gray-700 hover:text-blue-700">Blog</a>
+            <!-- FIX TYPO: blog.hhtml -> blog.html (struktur tetap, hanya perbaikan tautan) -->
+            <a href="blog.html" class="block font-semibold text-gray-700 hover:text-blue-700">Blog</a>
             <hr>
             <a href="tel:02112345678" class="flex items-center gap-3 text-blue-700 font-bold">
                 <i class="fa-solid fa-phone"></i> 021-1234-5678
@@ -255,7 +336,7 @@
 
                 <div class="search-box-new">
                     <div class="input-group">
-                        <label>Tipe Kos</label>
+                        <label for="searchType">Tipe Kos</label>
                         <select id="searchType">
                             <option value="Semua">Semua Tipe</option>
                             <option value="Putra">Putra</option>
@@ -265,26 +346,35 @@
                     </div>
                     <div class="divider-v"></div>
                     <div class="input-group">
-                        <label>Lokasi Kota</label>
-                        <input type="text" id="searchLocation" placeholder="Contoh: Jakarta">
+                        <label for="searchLocation">Lokasi Kota</label>
+                        <input type="text" id="searchLocation" placeholder="Contoh: Jakarta" autocomplete="address-level2">
                     </div>
-                    <button onclick="executeSearch()" class="btn-search">
+                    <button onclick="executeSearch()" class="btn-search" aria-label="Cari kos berdasarkan tipe dan lokasi">
                         <i class="fa-solid fa-magnifying-glass"></i> Cari
                     </button>
                 </div>
 
                 <div class="trust-info">
-                    <div class="avatars">
-                        <img src="https://i.pravatar.cc/100?u=1">
-                        <img src="https://i.pravatar.cc/100?u=2">
-                        <img src="https://i.pravatar.cc/100?u=3">
+                    <div class="avatars" aria-hidden="true">
+                        <img src="https://i.pravatar.cc/100?u=1" alt="" loading="lazy" decoding="async">
+                        <img src="https://i.pravatar.cc/100?u=2" alt="" loading="lazy" decoding="async">
+                        <img src="https://i.pravatar.cc/100?u=3" alt="" loading="lazy" decoding="async">
                     </div>
                     <span>Dipercaya oleh <strong>1,200+</strong> penyewa aktif</span>
                 </div>
             </div>
 
             <div class="hero-image-side">
-                <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Room Image">
+                <!-- Performance: loading/decoding + width/height + alt SEO -->
+                <img
+                  src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                  alt="Contoh kamar kos nyaman dan modern di Kost Star"
+                  loading="eager"
+                  fetchpriority="high"
+                  decoding="async"
+                  width="1000"
+                  height="750"
+                >
                 <div class="floating-card">
                     <i class="fa-solid fa-star"></i>
                     <div class="text-left">
@@ -331,7 +421,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" id="kostGrid">
             <div class="kost-item bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm card-shadow transition-all" data-type="Eksklusif">
                 <div class="relative">
-                    <img src="img/kost1.avif" alt="Kos" class="w-full h-56 object-cover">
+                    <img src="img/kost1.avif" alt="Kos Eksklusif Kost Star A di Senen, Jakarta Pusat" class="w-full h-56 object-cover" loading="lazy" decoding="async" width="640" height="420">
                     <span class="absolute top-4 left-4 bg-blue-600 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Eksklusif</span>
                 </div>
                 <div class="p-6">
@@ -348,7 +438,7 @@
 
             <div class="kost-item bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm card-shadow transition-all" data-type="Putra">
                 <div class="relative">
-                    <img src="img/kost2.avif" alt="Kos" class="w-full h-56 object-cover">
+                    <img src="img/kost2.avif" alt="Kos Putra Kost Star B di BSD, Tangerang" class="w-full h-56 object-cover" loading="lazy" decoding="async" width="640" height="420">
                     <span class="absolute top-4 left-4 bg-green-600 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Putra</span>
                 </div>
                 <div class="p-6">
@@ -365,7 +455,7 @@
 
             <div class="kost-item bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm card-shadow transition-all" data-type="Putri">
                 <div class="relative">
-                    <img src="img/kost3.avif" alt="Kos" class="w-full h-56 object-cover">
+                    <img src="img/kost3.avif" alt="Kos Putri Kost Star C di Margonda, Depok" class="w-full h-56 object-cover" loading="lazy" decoding="async" width="640" height="420">
                     <span class="absolute top-4 left-4 bg-pink-600 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Putri</span>
                 </div>
                 <div class="p-6">
@@ -382,7 +472,7 @@
 
             <div class="kost-item bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm card-shadow transition-all" data-type="Putri">
                 <div class="relative">
-                    <img src="img/kost4.avif" alt="Kos" class="w-full h-56 object-cover">
+                    <img src="img/kost4.avif" alt="Kos Putri Kost Star D di Tebet, Jakarta Selatan" class="w-full h-56 object-cover" loading="lazy" decoding="async" width="640" height="420">
                     <span class="absolute top-4 left-4 bg-pink-600 text-white text-[10px] px-3 py-1 rounded-full font-bold uppercase tracking-widest">Putri</span>
                 </div>
                 <div class="p-6">
@@ -449,7 +539,7 @@
                     <p class="text-blue-100 font-medium mb-8">Gunakan Kode: <span class="bg-white/20 px-3 py-1 rounded text-white">STARHEMAT</span></p>
                     <button class="bg-white text-blue-700 px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition-all">Ambil Promo</button>
                 </div>
-                <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=300&q=80" class="hidden lg:block w-64 h-64 rounded-full object-cover border-8 border-white/10 opacity-80 group-hover:scale-110 transition duration-700">
+                <img src="https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=300&q=80" class="hidden lg:block w-64 h-64 rounded-full object-cover border-8 border-white/10 opacity-80 group-hover:scale-110 transition duration-700" alt="Promo diskon sewa kos Kost Star" loading="lazy" decoding="async" width="300" height="300">
             </div>
             <div class="bg-gradient-to-br from-orange-500 to-red-600 rounded-[2rem] p-10 flex flex-col justify-center items-center md:items-start overflow-hidden relative group text-center md:text-left">
                 <div class="relative z-10">
@@ -457,7 +547,7 @@
                     <p class="text-orange-100 font-medium mb-8">Khusus Pengguna Baru</p>
                     <button class="bg-white text-orange-600 px-8 py-3 rounded-full font-bold shadow-xl hover:scale-105 transition-all">Lihat Promo</button>
                 </div>
-                <div class="absolute -right-10 transform rotate-12 opacity-20 group-hover:rotate-0 transition duration-700 hidden md:block">
+                <div class="absolute -right-10 transform rotate-12 opacity-20 group-hover:rotate-0 transition duration-700 hidden md:block" aria-hidden="true">
                     <i class="fa-solid fa-gift text-[12rem] text-white"></i>
                 </div>
             </div>
@@ -473,7 +563,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="testi-card p-8 rounded-3xl shadow-xl relative overflow-hidden">
                     <div class="flex items-center gap-4 mb-6">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" class="w-16 h-16 rounded-full object-cover border-4 border-blue-50 shadow-md">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" class="w-16 h-16 rounded-full object-cover border-4 border-blue-50 shadow-md" alt="Testimoni Sarah Amanda" loading="lazy" decoding="async" width="150" height="150">
                         <div>
                             <h4 class="font-bold text-gray-900 text-lg">Sarah Amanda</h4>
                             <span class="text-blue-600 text-xs font-bold uppercase tracking-wider">Mahasiswi UGM</span>
@@ -483,7 +573,7 @@
                 </div>
                 <div class="testi-card p-8 rounded-3xl shadow-xl relative overflow-hidden">
                     <div class="flex items-center gap-4 mb-6">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="w-16 h-16 rounded-full object-cover border-4 border-blue-50 shadow-md">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="w-16 h-16 rounded-full object-cover border-4 border-blue-50 shadow-md" alt="Testimoni Budi Santoso" loading="lazy" decoding="async" width="150" height="150">
                         <div>
                             <h4 class="font-bold text-gray-900 text-lg">Budi Santoso</h4>
                             <span class="text-blue-600 text-xs font-bold uppercase tracking-wider">Karyawan Swasta</span>
@@ -493,7 +583,7 @@
                 </div>
                 <div class="testi-card p-8 rounded-3xl shadow-xl relative overflow-hidden">
                     <div class="flex items-center gap-4 mb-6">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" class="w-16 h-16 rounded-full object-cover border-4 border-blue-50 shadow-md">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" class="w-16 h-16 rounded-full object-cover border-4 border-blue-50 shadow-md" alt="Testimoni Rina Kartika" loading="lazy" decoding="async" width="150" height="150">
                         <div>
                             <h4 class="font-bold text-gray-900 text-lg">Rina Kartika</h4>
                             <span class="text-blue-600 text-xs font-bold uppercase tracking-wider">Freelancer</span>
@@ -531,9 +621,9 @@
                 <div>
                     <h4 class="font-bold text-lg mb-6">Ikuti Kami</h4>
                     <div class="flex gap-4">
-                        <a href="#" class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition shadow-sm"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="w-10 h-10 bg-blue-50 text-blue-400 rounded-full flex items-center justify-center hover:bg-blue-400 hover:text-white transition shadow-sm"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" class="w-10 h-10 bg-blue-50 text-pink-500 rounded-full flex items-center justify-center hover:bg-pink-500 hover:text-white transition shadow-sm"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center hover:bg-blue-600 hover:text-white transition shadow-sm" aria-label="Facebook Kost Star"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 bg-blue-50 text-blue-400 rounded-full flex items-center justify-center hover:bg-blue-400 hover:text-white transition shadow-sm" aria-label="Twitter Kost Star"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 bg-blue-50 text-pink-500 rounded-full flex items-center justify-center hover:bg-pink-500 hover:text-white transition shadow-sm" aria-label="Instagram Kost Star"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
             </div>
@@ -544,12 +634,14 @@
     </footer>
 
     <script>
-        // TOGGLE NAV MOBILE
+        // TOGGLE NAV MOBILE (SEO/Accessibility: update aria-expanded)
         const navToggle = document.getElementById('nav-toggle');
         const navMenu = document.getElementById('nav-menu');
 
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('hidden');
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', String(!expanded));
         });
 
         // SEARCH FUNCTION
@@ -586,13 +678,14 @@
             }
         }
     </script>
+
     <div class="fixed bottom-6 right-6 flex flex-col gap-4 items-end z-[999]">
     
     <div id="cs-popup" class="hidden w-72 md:w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 overflow-hidden mb-2 transition-all duration-300 transform translate-y-4 opacity-0">
         <div class="bg-blue-700 p-4 text-white flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="relative">
-                    <img src="https://i.pravatar.cc/100?u=admin" class="w-10 h-10 rounded-full border-2 border-white/20">
+                    <img src="https://i.pravatar.cc/100?u=admin" class="w-10 h-10 rounded-full border-2 border-white/20" alt="Admin Kost Star" loading="lazy" decoding="async" width="40" height="40">
                     <span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
                 </div>
                 <div>
@@ -600,7 +693,7 @@
                     <small class="text-xs text-blue-100">Online 24/7</small>
                 </div>
             </div>
-            <button onclick="toggleCSPopup()" class="text-white/80 hover:text-white">
+            <button onclick="toggleCSPopup()" class="text-white/80 hover:text-white" aria-label="Tutup chat admin">
                 <i class="fa-solid fa-xmark text-xl"></i>
             </button>
         </div>
@@ -613,21 +706,22 @@
         </div>
 
         <div class="p-3 bg-white border-t flex gap-2">
-            <input type="text" placeholder="Tulis pesan..." class="flex-1 bg-slate-100 border-none rounded-xl px-4 py-2 text-sm focus:ring-1 focus:ring-blue-600 outline-none">
-            <button class="bg-blue-700 text-white w-10 h-10 rounded-xl flex items-center justify-center hover:bg-blue-800 transition">
+            <input type="text" placeholder="Tulis pesan..." class="flex-1 bg-slate-100 border-none rounded-xl px-4 py-2 text-sm focus:ring-1 focus:ring-blue-600 outline-none" aria-label="Tulis pesan">
+            <button class="bg-blue-700 text-white w-10 h-10 rounded-xl flex items-center justify-center hover:bg-blue-800 transition" aria-label="Kirim pesan">
                 <i class="fa-solid fa-paper-plane text-sm"></i>
             </button>
         </div>
     </div>
 
-    <button onclick="toggleCSPopup()" class="flex items-center gap-3 bg-blue-700 text-white px-5 py-3 rounded-full shadow-xl hover:bg-blue-800 hover:scale-105 transition-all duration-300 group">
+    <button onclick="toggleCSPopup()" class="flex items-center gap-3 bg-blue-700 text-white px-5 py-3 rounded-full shadow-xl hover:bg-blue-800 hover:scale-105 transition-all duration-300 group" aria-label="Buka chat admin">
         <span class="text-sm font-bold hidden group-hover:block transition-all">Chat Admin</span>
         <i class="fa-solid fa-headset text-xl"></i>
     </button>
 
     <a href="https://wa.me/6281234567890?text=Halo%20Kost%20Star,%20saya%20ingin%20bertanya%20seputar%20unit%20kos." 
-       target="_blank" 
-       class="flex items-center gap-3 bg-green-500 text-white px-5 py-3 rounded-full shadow-xl hover:bg-green-600 hover:scale-105 transition-all duration-300 group">
+       target="_blank" rel="noopener"
+       class="flex items-center gap-3 bg-green-500 text-white px-5 py-3 rounded-full shadow-xl hover:bg-green-600 hover:scale-105 transition-all duration-300 group"
+       aria-label="Chat WhatsApp Kost Star">
         <span class="text-sm font-bold hidden group-hover:block transition-all">WhatsApp Chat</span>
         <i class="fa-brands fa-whatsapp text-2xl"></i>
     </a>
@@ -639,14 +733,12 @@
         const popup = document.getElementById('cs-popup');
         
         if (popup.classList.contains('hidden')) {
-            // Tampilkan
             popup.classList.remove('hidden');
             setTimeout(() => {
                 popup.classList.remove('translate-y-4', 'opacity-0');
                 popup.classList.add('translate-y-0', 'opacity-100');
             }, 10);
         } else {
-            // Sembunyikan
             popup.classList.add('translate-y-4', 'opacity-0');
             popup.classList.remove('translate-y-0', 'opacity-100');
             setTimeout(() => {
@@ -655,24 +747,23 @@
         }
     }
 </script>
+
 <!-- BUTTON KEMBALI KE ATAS (paste sebelum </body>) -->
 <button id="backToTop"
   class="hidden fixed bottom-40 right-6 z-[1000] w-12 h-12 rounded-full bg-white border border-slate-200 shadow-xl
-         flex items-center justify-center text-blue-700 hover:bg-blue-700 hover:text-white transition-all duration-300">
+         flex items-center justify-center text-blue-700 hover:bg-blue-700 hover:text-white transition-all duration-300"
+  aria-label="Kembali ke atas">
   <i class="fa-solid fa-arrow-up"></i>
 </button>
 
 <script>
   (function () {
     const btn = document.getElementById('backToTop');
-    const showAfter = 300; // muncul setelah scroll 300px
+    const showAfter = 300;
 
     function toggleBackToTop() {
-      if (window.scrollY > showAfter) {
-        btn.classList.remove('hidden');
-      } else {
-        btn.classList.add('hidden');
-      }
+      if (window.scrollY > showAfter) btn.classList.remove('hidden');
+      else btn.classList.add('hidden');
     }
 
     window.addEventListener('scroll', toggleBackToTop, { passive: true });
